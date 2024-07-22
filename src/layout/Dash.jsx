@@ -1,0 +1,181 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { searchEmployees } from '../api';
+import EmployeeDetails from '../pages/modals/EmployeeDetails';
+import { motion, AnimatePresence } from 'framer-motion';
+import '../styles/layoutStyling.css';
+
+const Dash = ({ children }) => {
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+    const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+    const toggleCollapse = () => {
+        setIsCollapsed(!isCollapsed);
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
+    const handleSearchInputChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const handleSearch = async () => {
+        if (searchTerm.trim() === '') {
+            setSearchResults([]);
+            return;
+        }
+
+        try {
+            const response = await searchEmployees(searchTerm);
+            const data = response.data;
+            setSearchResults(data);
+            setShowPopup(true); 
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+            setSearchResults([]);
+        }
+    };
+
+    const closePopup = () => {
+        setShowPopup(false);
+    };
+
+    const showEmployeeDetails = (employee) => {
+        setSelectedEmployee(employee);
+    };
+
+    const closeEmployeeDetails = () => {
+        setSelectedEmployee(null);
+    };
+
+    return (
+        <div className="dashboard-layout">
+            <nav className="navbar">
+                <div>
+                    <button className="collapse-btn" onClick={toggleCollapse}>
+                        {isCollapsed ? 'Expand' : 'Collapse'}
+                    </button>
+                </div>
+                <div className="navbar-left">
+                    <img src="../assets/logo.png" alt="" className="logo" />
+                </div>
+                <div className="navbar-center">
+                    {/* <input
+                        type="text"
+                        placeholder="Search Employee"
+                        className="search-input"
+                        value={searchTerm}
+                        onChange={handleSearchInputChange}
+                        onKeyDown={handleKeyDown}
+                    /> */}
+                </div>
+                <div className="navbar-right">
+                    <button className="icon-button"><i className="bell-icon"></i></button>
+                    <button className="icon-button"><i className="gift-icon"></i></button>
+                    <button className="icon-button"><i className="help-icon"></i></button>
+                    <div className="user-profile">
+                        <img src="../assets/avatar.png" alt="" className="avatar" />
+                        <span className="user-name">Name</span>
+                        <span className="user-role">Role</span>
+                    </div>
+                </div>
+            </nav>
+
+            <div className="main-content-wrapper">
+                <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+                    <ul>
+                        <li><Link to="/dashboard"><i className="icon-dashboard"></i><span>Dashboard</span></Link></li>
+                        <li><Link to="/employees"><i className="icon-workers"></i><span>Employees</span></Link></li>
+                        <li><Link to="/salaries"><i className="icon-payroll"></i><span>Payroll</span></Link></li>
+                        <li><Link to="/reports"><i className="icon-reports"></i><span>Reports</span></Link></li>
+                        <li><Link to="/filings"><i className="icon-filings"></i><span>Filings</span></Link></li>
+                        <li><Link to="/hr"><i className="icon-hr"></i><span>HR</span></Link></li>
+                        <li><Link to="/company"><i className="icon-company"></i><span>Company</span></Link></li>
+                    </ul>
+                </nav>
+
+                <div className="content-area">
+                    {children}
+                </div>
+
+                {/* Popup Modal for Search Results */}
+                {showPopup && (
+                    <div className="popup-overlay">
+                        <div className="popup-content">
+                            <button className="close-btn" onClick={closePopup}>Close</button>
+                            <div className="search-results">
+                                {searchResults.length > 0 ? (
+                                    <div className="table-wrapper">
+                                        <table className="fl-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>DOB</th>
+                                                    <th>Gender</th>
+                                                    <th>Department ID</th>
+                                                    <th>Employment Type</th>
+                                                    <th>Employment Date</th>
+                                                    <th>Status</th>
+                                                    <th>Status Description</th>
+                                                    <th>Termination Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {searchResults.map(employee => (
+                                                    <tr key={employee.employeeId}>
+                                                        <td><button onClick={() => showEmployeeDetails(employee)}>
+                                                            {employee.employeeId}
+                                                        </button></td>
+                                                        <td>{employee.name}</td>
+                                                        <td>{employee.dob}</td>
+                                                        <td>{employee.gender}</td>
+                                                        <td>{employee.departmentId}</td>
+                                                        <td>{employee.employmentType}</td>
+                                                        <td>{employee.employmentDate}</td>
+                                                        <td>{employee.status}</td>
+                                                        <td>{employee.statusDescription}</td>
+                                                        <td>{employee.terminationDate}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                        {selectedEmployee && (
+                                            <div className="employee-details-overlay">
+                                                <AnimatePresence>
+                                                    <motion.div
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        exit={{ opacity: 0 }}
+                                                        className="employee-details-container"
+                                                    >
+                                                        <EmployeeDetails
+                                                            employee={selectedEmployee}
+                                                            onClose={closeEmployeeDetails}
+                                                        />
+                                                    </motion.div>
+                                                </AnimatePresence>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                ) : (
+                                    <p>No results found.</p>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default Dash;
