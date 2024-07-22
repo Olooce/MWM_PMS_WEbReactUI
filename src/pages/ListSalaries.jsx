@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { getAllSalaries } from '../../api';
+import {getAllSalaries} from '../api';
 import Dash from "../../layout/Dash";
 import LoadingAnimation from './LoadingAnimation';
 import SalariesTable from './SalariesTable';
