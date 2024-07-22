@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
-import EmployeeDetails from '../pages/modals/EmployeeDetails';
+import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';
 

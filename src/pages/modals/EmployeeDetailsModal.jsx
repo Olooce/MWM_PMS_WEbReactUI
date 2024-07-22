@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/EmployeeDetails-styling.css'
 
-const EmployeeDetails = ({ employee, onClose, onSave, onDelete }) => {
+const EmployeeDetailsModal = ({ employee, onClose, onSave, onDelete }) => {
     const [editableEmployee, setEditableEmployee] = useState({ ...employee });
 
     const handleChange = (e) => {
@@ -128,4 +128,4 @@ const EmployeeDetails = ({ employee, onClose, onSave, onDelete }) => {
     );
 };
 
-export default EmployeeDetails;
+export default EmployeeDetailsModal;

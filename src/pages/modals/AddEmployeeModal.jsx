@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import '../../styles/AddEmployee-Styling.css';
 
-const AddEmployee = ({ isOpen, onClose, onSubmit, newEmployee, handleNewEmployeeChange }) => {
+const AddEmployeeModal = ({ isOpen, onClose, onSubmit, newEmployee, handleNewEmployeeChange }) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -101,4 +101,4 @@ const AddEmployee = ({ isOpen, onClose, onSubmit, newEmployee, handleNewEmployee
     );
 };
 
-export default AddEmployee;
+export default AddEmployeeModal;

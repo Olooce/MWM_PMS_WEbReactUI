@@ -11,8 +11,8 @@ import Pagination from './Pagination';
 import SearchBar from './SearchBar';
 import EmployeeTable from './EmployeeTable';
 import LoadingAnimation from './LoadingAnimation';
-import EmployeeDetailsModal from './EmployeeDetailsModal';
-import AddEmployeeModal from './AddEmployeeModal';
+import EmployeeDetailsModal from './modals/EmployeeDetailsModal';
+import AddEmployeeModal from './modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
 import '../styles/employeelistStyling.css';
 
