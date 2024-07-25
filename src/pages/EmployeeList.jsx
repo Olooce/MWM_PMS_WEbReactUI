@@ -164,6 +164,7 @@ const ListEmployees = () => {
                     inputSize={inputSize}
                     setInputSize={setInputSize}
                     handleGoToPage={handleGoToPage}
+                    setLoading={setLoading}
                 />
             </>
         );
