@@ -147,7 +147,7 @@ const ListEmployees = () => {
         if (error) return <div>Error: {error}</div>;
         if (loading) return <LoadingAnimation key="loading" />;
         if (employees.length === 0 && !loading) return <p>No employees found.</p>;
-        return <EmployeeTable employees={employees} page={page} size={size} showEmployeeDetails={showEmployeeDetails} />;
+        // return <EmployeeTable employees={employees} page={page} size={size} showEmployeeDetails={showEmployeeDetails} />;
     };
 
     return (
