@@ -3,7 +3,7 @@ import {getAllSalaries} from '../api';
 import Dash from "../layout/Dash";
 import LoadingAnimation from './LoadingAnimation';
 import SalariesTable from './SalariesTable';
-import Pagination from './Pagination';
+import Pagination from '../components/Pagination';
 
 const ListSalaries = () => {
   const [salaries, setSalaries] = useState([]);

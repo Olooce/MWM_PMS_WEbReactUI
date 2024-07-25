@@ -1,13 +1,26 @@
 import React from 'react';
-import HandleNextPage from '../components/HandleNextPage';
-import HandlePrevPage from '../components/HandlePrevPage';
+
 
 
 
 
 function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, handleGoToPage , setLoading}) {
 
-    console.log("clcicked!")
+    const HandleNextPage = ({ page, setPage, setLoading }) => {
+        const nextPage = () => {
+            setLoading(true);
+            setPage((prev) => prev + 1);
+        };
+        return <button onClick={nextPage}>Next</button>;
+    };
+    const HandlePrevPage = ({ page, setPage, setLoading }) => {
+        const prevPage = () => {
+          setLoading(true);
+          setPage((prev) => (prev > 0 ? prev - 1 : 0));
+        };
+        return <button onClick={prevPage} disabled={page === 1}>Previous</button>;
+      };
+    
     return (
             <div className="pagination">
                 <HandlePrevPage page={page} setPage={setPage}  setLoading={setLoading}/>

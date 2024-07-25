@@ -7,7 +7,7 @@ import {
     deleteEmployee,
 } from '../api';
 import Dash from "../layout/Dash";
-import Pagination from './Pagination';
+import Pagination from '../components/Pagination';
 import SearchBar from './SearchBar';
 import EmployeeTable from './EmployeeTable';
 import LoadingAnimation from './LoadingAnimation';
@@ -15,6 +15,8 @@ import EmployeeDetailsModal from './modals/EmployeeDetailsModal';
 import AddEmployeeModal from './modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
 import '../styles/employeelistStyling.css';
+
+
 
 const ListEmployees = () => {
     const [employees, setEmployees] = useState([]);
