@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../styles/searchBarStyling.css'
 const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, handleShowAllEmployees }) => (
     <div className="search-bar">
         <input
@@ -9,7 +9,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, handleShowAllEmplo
             placeholder="Search employees..."
         />
         <button onClick={handleSearch}>Search</button>
-        <button onClick={handleShowAllEmployees}>All Employees</button>
+        <button className= 'show-all-button' onClick={handleShowAllEmployees}>All Employees</button>
     </div>
 );
 
