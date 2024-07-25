@@ -2,8 +2,15 @@ import React from 'react';
 import HandleNextPage from '../components/HandleNextPage';
 import HandlePrevPage from '../components/HandlePrevPage';
 
-const Pagination = ({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, handleGoToPage }) => (
-    <div className="pagination">
+function Pagination ({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, handleGoToPage }){
+    
+    console.log("clcicked!")
+    return 
+   (
+
+   
+   
+   <div className="pagination">
         <HandlePrevPage page={page} setPage={setPage} />
         <span className="page-info">Page {page}</span>
         <HandleNextPage page={page} setPage={setPage} />
@@ -26,5 +33,7 @@ const Pagination = ({ page, setPage, inputPage, setInputPage, inputSize, setInpu
         </div>
     </div>
 );
+
+}
 
 export default Pagination;
