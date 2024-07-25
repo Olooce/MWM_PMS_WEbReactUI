@@ -159,9 +159,9 @@ const ListEmployees = () => {
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
                         handleSearch={handleSearch}
-                        handleShowAllEmployees={handleShowAllEmployees}
+                        handleAddEmployee={() => setIsModalOpen(true)}
                     />
-                    <button className="add-employee-button" onClick={() => setIsModalOpen(true)}>Add Employee</button>
+                    <button className="add-employee-button" onClick={handleShowAllEmployees}>Show All</button>
                 </div>
 
                 {renderContent()}
