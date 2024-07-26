@@ -41,7 +41,7 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
 
     useEffect(() => {
-        const eventSource = new EventSource('http://localhost:8080/api/notifications');
+        const eventSource = new EventSource('http://localhost:8080/api/export/employees');
 
         eventSource.onmessage = (event) => {
             setNotifications((prev) => [...prev, event.data]);
@@ -54,12 +54,12 @@ const Dash = ({ children }) => {
         <div className="dashboard-layout">
             <nav className="navbar">
                 <div>
-                    <button className="collapse-btn" onClick={toggleCollapse}>
-                        {isCollapsed ? 'Expand' : 'Collapse'}
+                    <button className="icon-button" onClick={toggleCollapse}>
+                        {isCollapsed ? '<' : '>'}
                     </button>
                 </div>
                 <div className="navbar-left">
-                    <img src="../assets/react.svg" alt="Logo" className="logo" />
+                    {/* <img src="../assets/react.svg" alt="Logo" className="logo" /> */}
                 </div>
                 <div className="navbar-center">
                     {/* Search bar could go here */}
