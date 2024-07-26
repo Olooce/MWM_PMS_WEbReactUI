@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0066cc; /* Blue color matching the table */
+    background-color: #ffffff;
     color: white;
     padding: 0.5rem 1rem;
     position: fixed;
@@ -25,6 +25,7 @@
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .navbar-left .logo {
@@ -44,11 +45,32 @@
 }
 
 .icon-button {
-    background: none;
+    background: black;
     border: none;
-    color: white;
+    color: rgb(209, 10, 10);
     cursor: pointer;
+    height: 15px;
     margin: 0 0.5rem;
+    font-size: 3.5rem; 
+    display: flex;
+    align-items: center;
+}
+
+.icon-button i {
+    margin-right: 0.5rem;
+}
+
+
+.icon-button .bell-icon {
+    font-size: 4.5rem;
+}
+
+.icon-button .gift-icon {
+    font-size: 4.5rem;
+}
+
+.icon-button .help-icon {
+    font-size: 4.5rem;
 }
 
 .user-profile {
@@ -114,6 +136,7 @@
 .sidebar ul li a .icon-hr,
 .sidebar ul li a .icon-company {
     margin-right: 0.625rem;
+    font-size: 1.25rem; /* Adjust icon size */
 }
 
 /* Content area */
@@ -127,7 +150,6 @@
 .sidebar.collapsed + .content-area {
     margin-left: 0%;
 }
-
 
 /* Responsive styling */
 @media (max-width: 768px) {
@@ -152,8 +174,7 @@
     }
 }
 
-
-/* POPUP */
+/* Popup */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -181,11 +202,10 @@
     position: absolute;
     top: 0px;
     right: 10px;
-    background:  #109c56;
+    background: #109c56;
     border-radius: 20%;
     cursor: pointer;
     font-size: 16px;
-  
 }
 
 .search-results table {
@@ -194,7 +214,6 @@
 }
 
 .search-results th, .search-results td {
-    top: 25px;
     border: 1px solid #ddd;
     padding: 8px;
 }
