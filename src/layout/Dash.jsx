@@ -43,12 +43,12 @@ const Dash = ({ children }) => {
 
     // Function to start export and setup SSE listener
     const startExport = () => {
-        fetch('http://localhost:8080/api/export/departments', { method: 'POST' })
+        // fetch('http://localhost:8080/api/export/departments', { method: 'GET' })
             .then(response => {
                 if (eventSource) {
                     eventSource.close(); // Close existing event source if any
                 }
-                const newEventSource = new EventSource('http://localhost:8080/api/export/departments');
+                const newEventSource = new EventSource('http://localhost:8080/sse-emitter');
                 setEventSource(newEventSource);
 
                 newEventSource.onmessage = (event) => {
