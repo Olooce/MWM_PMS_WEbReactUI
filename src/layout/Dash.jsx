@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
 import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
+import NotificationDrawer from '../components/NotificationDrawer';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';
 
@@ -12,8 +13,10 @@ const Dash = ({ children }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [notifications, setNotifications] = useState([]);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+    const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
     const handleSearchInputChange = (e) => setSearchTerm(e.target.value);
 
@@ -34,9 +37,7 @@ const Dash = ({ children }) => {
     };
 
     const closePopup = () => setShowPopup(false);
-
     const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
-
     const closeEmployeeDetails = () => setSelectedEmployee(null);
 
     useEffect(() => {
@@ -58,13 +59,15 @@ const Dash = ({ children }) => {
                     </button>
                 </div>
                 <div className="navbar-left">
-                    <img src="../assets/logo.png" alt="Logo" className="logo" />
+                    <img src="../assets/react.svg" alt="Logo" className="logo" />
                 </div>
                 <div className="navbar-center">
                     {/* Search bar could go here */}
                 </div>
                 <div className="navbar-right">
-                    <button className="icon-button"><i className="bell-icon"></i></button>
+                    <button className="icon-button" onClick={toggleDrawer}>
+                        <i className="bell-icon"></i>
+                    </button>
                     <button className="icon-button"><i className="gift-icon"></i></button>
                     <button className="icon-button"><i className="help-icon"></i></button>
                     <div className="user-profile">
@@ -92,15 +95,12 @@ const Dash = ({ children }) => {
                     {children}
                 </div>
 
-                {/* Notifications Section */}
-                <div className="notifications">
-                    <h2>Notifications</h2>
-                    <ul>
-                        {notifications.map((notification, index) => (
-                            <li key={index}>{notification}</li>
-                        ))}
-                    </ul>
-                </div>
+                {/* Notification Drawer */}
+                <NotificationDrawer
+                    notifications={notifications}
+                    isOpen={isDrawerOpen}
+                    onClose={toggleDrawer}
+                />
 
                 {/* Popup Modal for Search Results */}
                 {showPopup && (

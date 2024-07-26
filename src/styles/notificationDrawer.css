@@ -1,0 +1,58 @@
+.notification-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background: white;
+    border-left: 1px solid #ddd;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.drawer-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.close-drawer-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.drawer-content {
+    flex: 1;
+    margin-top: 16px;
+}
+
+.drawer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer-content li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.drawer-content p {
+    color: #666;
+}
