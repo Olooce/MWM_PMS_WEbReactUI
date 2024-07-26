@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {getAllSalaries} from '../api';
+import { getAllSalaries } from '../api';
 import Dash from "../layout/Dash";
 import LoadingAnimation from './LoadingAnimation';
 import SalariesTable from './SalariesTable';
@@ -42,7 +42,7 @@ const ListSalaries = () => {
     if (error) return <div>Error: {error}</div>;
     if (loading) return <LoadingAnimation />;
     if (salaries.length === 0) return <p>No salaries found.</p>;
-    
+
     return <SalariesTable salaries={salaries} page={page} size={size} />;
   };
 
@@ -55,10 +55,11 @@ const ListSalaries = () => {
           page={page}
           setPage={setPage}
           inputPage={inputPage}
+          setInputPage={setInputPage}
           inputSize={inputSize}
-          handlePageChange={handlePageChange}
-          handleSizeChange={handleSizeChange}
+          setInputSize={setInputSize}
           handleGoToPage={handleGoToPage}
+          setLoading={setLoading}
         />
       </div>
     </Dash>
