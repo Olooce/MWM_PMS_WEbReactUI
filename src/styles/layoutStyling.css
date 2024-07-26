@@ -45,16 +45,20 @@
 }
 
 .icon-button {
-    background: black;
-    border: none;
-    color: rgb(209, 10, 10);
+    background-color: #3f51b5;
+    border: none; 
+    border-radius: 50%;
+    color: #fff; 
     cursor: pointer;
-    height: 15px;
-    margin: 0 0.5rem;
-    font-size: 3.5rem; 
+    font-size: 2.5rem; 
+    height: 2rem; 
+    width: 2rem; 
+    padding: 1rem;
+    margin: 0 0.5rem; 
     display: flex;
     align-items: center;
-}
+    justify-content: center;
+  }
 
 .icon-button i {
     margin-right: 0.5rem;
@@ -99,7 +103,7 @@
 /* Sidebar styling */
 .sidebar {
     width: 15%;
-    background-color: #0066cc; /* Blue color matching the table */
+    background-color: #0066cc; 
     padding: 1rem;
     transition: width 0.3s ease;
     overflow-y: auto;
