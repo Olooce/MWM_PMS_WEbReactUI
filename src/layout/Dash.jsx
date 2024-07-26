@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
 import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
@@ -11,20 +11,11 @@ const Dash = ({ children }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
+    const [notifications, setNotifications] = useState([]);
 
-    const toggleCollapse = () => {
-        setIsCollapsed(!isCollapsed);
-    };
+    const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    };
-
-    const handleSearchInputChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
+    const handleSearchInputChange = (e) => setSearchTerm(e.target.value);
 
     const handleSearch = async () => {
         if (searchTerm.trim() === '') {
@@ -34,26 +25,29 @@ const Dash = ({ children }) => {
 
         try {
             const response = await searchEmployees(searchTerm);
-            const data = response.data;
-            setSearchResults(data);
-            setShowPopup(true); 
+            setSearchResults(response.data);
+            setShowPopup(true);
         } catch (error) {
             console.error('Error fetching search results:', error);
             setSearchResults([]);
         }
     };
 
-    const closePopup = () => {
-        setShowPopup(false);
-    };
+    const closePopup = () => setShowPopup(false);
 
-    const showEmployeeDetails = (employee) => {
-        setSelectedEmployee(employee);
-    };
+    const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
 
-    const closeEmployeeDetails = () => {
-        setSelectedEmployee(null);
-    };
+    const closeEmployeeDetails = () => setSelectedEmployee(null);
+
+    useEffect(() => {
+        const eventSource = new EventSource('http://localhost:8080/api/notifications');
+
+        eventSource.onmessage = (event) => {
+            setNotifications((prev) => [...prev, event.data]);
+        };
+
+        return () => eventSource.close();
+    }, []);
 
     return (
         <div className="dashboard-layout">
@@ -64,24 +58,17 @@ const Dash = ({ children }) => {
                     </button>
                 </div>
                 <div className="navbar-left">
-                    <img src="../assets/logo.png" alt="" className="logo" />
+                    <img src="../assets/logo.png" alt="Logo" className="logo" />
                 </div>
                 <div className="navbar-center">
-                    {/* <input
-                        type="text"
-                        placeholder="Search Employee"
-                        className="search-input"
-                        value={searchTerm}
-                        onChange={handleSearchInputChange}
-                        onKeyDown={handleKeyDown}
-                    /> */}
+                    {/* Search bar could go here */}
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button"><i className="bell-icon"></i></button>
                     <button className="icon-button"><i className="gift-icon"></i></button>
                     <button className="icon-button"><i className="help-icon"></i></button>
                     <div className="user-profile">
-                        <img src="../assets/avatar.png" alt="" className="avatar" />
+                        <img src="../assets/avatar.png" alt="User Avatar" className="avatar" />
                         <span className="user-name">Name</span>
                         <span className="user-role">Role</span>
                     </div>
@@ -103,6 +90,16 @@ const Dash = ({ children }) => {
 
                 <div className="content-area">
                     {children}
+                </div>
+
+                {/* Notifications Section */}
+                <div className="notifications">
+                    <h2>Notifications</h2>
+                    <ul>
+                        {notifications.map((notification, index) => (
+                            <li key={index}>{notification}</li>
+                        ))}
+                    </ul>
                 </div>
 
                 {/* Popup Modal for Search Results */}
@@ -131,9 +128,7 @@ const Dash = ({ children }) => {
                                             <tbody>
                                                 {searchResults.map(employee => (
                                                     <tr key={employee.employeeId}>
-                                                        <td><button onClick={() => showEmployeeDetails(employee)}>
-                                                            {employee.employeeId}
-                                                        </button></td>
+                                                        <td><button onClick={() => showEmployeeDetails(employee)}>{employee.employeeId}</button></td>
                                                         <td>{employee.name}</td>
                                                         <td>{employee.dob}</td>
                                                         <td>{employee.gender}</td>
@@ -165,7 +160,6 @@ const Dash = ({ children }) => {
                                             </div>
                                         )}
                                     </div>
-
                                 ) : (
                                     <p>No results found.</p>
                                 )}
