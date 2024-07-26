@@ -14,7 +14,6 @@ const Dash = ({ children }) => {
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [notifications, setNotifications] = useState([]);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [eventSource, setEventSource] = useState(null);
 
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
     const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
@@ -41,37 +40,15 @@ const Dash = ({ children }) => {
     const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
     const closeEmployeeDetails = () => setSelectedEmployee(null);
 
-    // Function to start export and setup SSE listener
-    const startExport = () => {
-        // // fetch('http://localhost:8080/api/export/departments', { method: 'GET' })
-        //     .then(response => {
-                // if (eventSource) {
-                //     eventSource.close(); // Close existing event source if any
-                // }
-                const newEventSource = new EventSource('http://localhost:8080/sse-emitter');
-                setEventSource(newEventSource);
-
-                newEventSource.onmessage = (event) => {
-                    setNotifications((prev) => [...prev, event.data]);
-                };
-
-                newEventSource.onerror = (error) => {
-                    console.error('EventSource failed:', error);
-                };
-            // })
-            // .catch(error => {
-            //     console.error('Error starting export:', error);
-            // });
-    };
-
-    // Clean up event source on component unmount
     useEffect(() => {
-        return () => {
-            if (eventSource) {
-                eventSource.close();
-            }
+        const eventSource = new EventSource('http://localhost:8080/api/notifications');
+
+        eventSource.onmessage = (event) => {
+            setNotifications((prev) => [...prev, event.data]);
         };
-    }, [eventSource]);
+
+        return () => eventSource.close();
+    }, []);
 
     return (
         <div className="dashboard-layout">
@@ -91,9 +68,7 @@ const Dash = ({ children }) => {
                     <button className="icon-button" onClick={toggleDrawer}>
                         <i className="bell-icon"></i>
                     </button>
-                    <button className="icon-button" onClick={startExport}>
-                        <i className="gift-icon"></i>
-                    </button>
+                    <button className="icon-button"><i className="gift-icon"></i></button>
                     <button className="icon-button"><i className="help-icon"></i></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
