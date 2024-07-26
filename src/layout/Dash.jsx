@@ -43,11 +43,11 @@ const Dash = ({ children }) => {
 
     // Function to start export and setup SSE listener
     const startExport = () => {
-        // fetch('http://localhost:8080/api/export/departments', { method: 'GET' })
-            .then(response => {
-                if (eventSource) {
-                    eventSource.close(); // Close existing event source if any
-                }
+        // // fetch('http://localhost:8080/api/export/departments', { method: 'GET' })
+        //     .then(response => {
+                // if (eventSource) {
+                //     eventSource.close(); // Close existing event source if any
+                // }
                 const newEventSource = new EventSource('http://localhost:8080/sse-emitter');
                 setEventSource(newEventSource);
 
@@ -58,10 +58,10 @@ const Dash = ({ children }) => {
                 newEventSource.onerror = (error) => {
                     console.error('EventSource failed:', error);
                 };
-            })
-            .catch(error => {
-                console.error('Error starting export:', error);
-            });
+            // })
+            // .catch(error => {
+            //     console.error('Error starting export:', error);
+            // });
     };
 
     // Clean up event source on component unmount
