@@ -59,11 +59,3 @@ export const getPaymentHistory = (employeeId) => api.get(`/salaries/payment-hist
 export const getAllUsers = (page = 1, size = 10) => api.get(`/systemusers?page=${page}&size=${size}`)
 
 
-// SSE for Export Jobs
-export const initiateExport = (tableName) => {
-  return new EventSource(`http://localhost:8080/api/export/${tableName}`);
-};
-
-export const initiateExportSearch = (tableName, searchTerm) => {
-  return new EventSource(`http://localhost:8080/api/exportSearch/${tableName}?searchTerm=${searchTerm}`);
-};
