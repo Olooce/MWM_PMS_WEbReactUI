@@ -54,8 +54,9 @@ export const getAllSalaries = (page = 1, size = 10) => api.get(`/salaries?page=$
 export const getEarningsAndDeductionsEmp = (employeeId = 1) => api.get(`/salaries/earnings-deductions?employeeId=${employeeId}`)
 export const getAllowancesSalariesDept = (departmentId = 1) => api.get(`/salaries/allowances-net-salaries?departmentId=${departmentId}`)
 export const getTotalSalary = api.get(`/salaries/total-net-salary`)
-export const getPaymentHistory = (employeeId) => api.get(`/salaries/payment-history/?employeeId=${employeeId}`)
+export const getPaymentHistory = (employeeId) => api.get(`/salaries/payment-history/?employeeId=${employeeId}`);
 
-export const getAllUsers = (page = 1, size = 10) => api.get(`/systemusers?page=${page}&size=${size}`)
+export const getAllUsers = (page = 1, size = 10) => api.get(`/systemusers?page=${page}&size=${size}`);
 
 
+export const startExport = (tableName) => api.post('api/export/${tableName}',tableName);
