@@ -29,7 +29,7 @@ const ListEmployees = () => {
     const [inputPage, setInputPage] = useState(1);
     const [inputSize, setInputSize] = useState(10);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState();
     const [isSearching, setIsSearching] = useState(false);
     const [newEmployee, setNewEmployee] = useState({
         name: '',
@@ -84,7 +84,6 @@ const ListEmployees = () => {
             console.log("Search export started");
             setLoading(true);
             const response = await exportSearch('employees', searchTerm);
-            // Handle the response, e.g., downloading a file or showing a message
         } catch (error) {
             console.error("Error exporting search results:", error);
         } finally {
