@@ -5,6 +5,8 @@ import {
     addNewEmployee,
     updateEmployee,
     deleteEmployee,
+    exportSearch,
+    exportSearch
 } from '../api';
 import Dash from "../layout/Dash";
 import Pagination from '../components/Pagination';
@@ -79,6 +81,8 @@ const ListEmployees = () => {
 
     const handleExportSearch = () => {
         console.log("Search export started");
+        setLoading(true);
+        response = await 
 
     }
 
