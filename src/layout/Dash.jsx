@@ -42,14 +42,19 @@ const Dash = ({ children }) => {
     const clientId = '1';
     const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
 
-    useEffect(() => {
-        eventSource.onmessage = (event) => {
-            setNotifications((prev) => [...prev, event.data]);
+    eventSource.onmessage = (event) => {
+        setNotifications((prev) => [...prev, event.data]);
 
-        };
+    };
 
-        return () => eventSource.close();
-    }, []);
+    // useEffect(() => {
+    //     eventSource.onmessage = (event) => {
+    //         setNotifications((prev) => [...prev, event.data]);
+
+    //     };
+
+    //     return () => eventSource.close();
+    // }, []);
 
     return (
         <div className="dashboard-layout">
