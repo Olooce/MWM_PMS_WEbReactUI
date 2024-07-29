@@ -59,7 +59,7 @@ const Dash = ({ children }) => {
                     </button>
                 </div>
                 <div className="navbar-left">
-                    {/* <img src="../assets/react.svg" alt="Logo" className="logo" /> */}
+                    <img src="../assets/logo-no-background.svg" alt="Logo" className="logo" />
                 </div>
                 <div className="navbar-center">
                     {/* Search bar could go here */}
