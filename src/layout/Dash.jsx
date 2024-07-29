@@ -45,6 +45,7 @@ const Dash = ({ children }) => {
         const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
         eventSource.onmessage = (event) => {
             setNotifications((prev) => [...prev, event.data]);
+            console.log(event);
 
         };
 
