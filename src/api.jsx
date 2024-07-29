@@ -58,8 +58,14 @@ export const getPaymentHistory = (employeeId) => api.get(`/salaries/payment-hist
 
 export const getAllUsers = (page = 1, size = 10) => api.get(`/systemusers?page=${page}&size=${size}`);
 
-export const exportTable = (tableName) => api.post(`/api/export/${tableName}`, tableName);
-export const exportSearch = (tableName, searchTerm) => api.post(`/api/exportSearch/${tableName}/?searchTerm=${searchTerm}`, tableName, searchTerm);
-export const downloadExport = (fileId) => api.get(`/api/download/${fileId}`, fileId); 
+export const exportTable = (tableName) => api.post(`/api/export/${tableName}`);
+export const exportSearch = (tableName, searchTerm) => api.post(`/api/exportSearch/${tableName}`, null, {
+  params: { searchTerm }
+});
+export const downloadExport = (fileId) => api.get(`/api/download/${fileId}`);
+
+
+
+
 
 // 
