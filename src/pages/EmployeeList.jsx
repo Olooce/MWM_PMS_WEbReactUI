@@ -6,7 +6,7 @@ import {
     updateEmployee,
     deleteEmployee,
     exportSearch,
-    exportSearch
+    exportTable
 } from '../api';
 import Dash from "../layout/Dash";
 import Pagination from '../components/Pagination';
@@ -79,12 +79,19 @@ const ListEmployees = () => {
         fetchEmployees();
     };
 
-    const handleExportSearch = () => {
-        console.log("Search export started");
-        setLoading(true);
-        response = await 
-
-    }
+    const handleExportSearch = useCallback(async () => {
+        try {
+            console.log("Search export started");
+            setLoading(true);
+            const response = await exportSearch('employees', searchTerm);
+            // Handle the response, e.g., downloading a file or showing a message
+        } catch (error) {
+            console.error("Error exporting search results:", error);
+        } finally {
+            setLoading(false);
+        }
+    }, [searchTerm]);
+    
 
     const handleExportTable = () => {
         console.log("Table export started");
