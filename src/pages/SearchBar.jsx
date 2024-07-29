@@ -9,6 +9,8 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, handleAddEmployee 
             placeholder="Search employees..."
         />
         <button onClick={handleSearch}>Search</button>
+        <button onclick={handleExportSearch}>Export Search Results</button>
+        <button onclick={handleExportTable}>Export Table</button>
         <button className='show-all-button' onClick={handleAddEmployee}>Add Employee</button>
     </div>
 );
