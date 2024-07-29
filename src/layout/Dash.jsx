@@ -72,8 +72,6 @@ const Dash = ({ children }) => {
                     <button className="icon-button"><i className="help-icon"></i></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
-                        <span className="user-name">Name</span>
-                        <span className="user-role">Role</span>
                     </div>
                 </div>
             </nav>
