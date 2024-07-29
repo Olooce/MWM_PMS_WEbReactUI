@@ -182,6 +182,8 @@ const ListEmployees = () => {
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
                         handleSearch={handleSearch}
+                        handleExportSearch={handleExportSearch}
+                        handleExportTable={handleExportTable}
                         handleAddEmployee={() => setIsModalOpen(true)}
                     />
                     <button className="add-employee-button" onClick={handleShowAllEmployees}>Show All</button>

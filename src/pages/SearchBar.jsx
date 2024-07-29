@@ -13,6 +13,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch,handleExportSearch,
         <button onClick={handleExportTable}>Export Table</button>
         <button className='show-all-button' onClick={handleAddEmployee}>Add Employee</button>
     </div>
+    
 );
 
 export default SearchBar;
