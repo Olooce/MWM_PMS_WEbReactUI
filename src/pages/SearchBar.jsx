@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/searchBarStyling.css'
-const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, handleAddEmployee }) => (
+const SearchBar = ({ searchTerm, setSearchTerm, handleSearch,handleExportSearch,handleExportTable, handleAddEmployee }) => (
     <div className="search-bar">
         <input
             type="text"
@@ -9,8 +9,8 @@ const SearchBar = ({ searchTerm, setSearchTerm, handleSearch, handleAddEmployee 
             placeholder="Search employees..."
         />
         <button onClick={handleSearch}>Search</button>
-        <button onclick={handleExportSearch}>Export Search Results</button>
-        <button onclick={handleExportTable}>Export Table</button>
+        <button onClick={handleExportSearch}>Export Search Results</button>
+        <button onClick={handleExportTable}>Export Table</button>
         <button className='show-all-button' onClick={handleAddEmployee}>Add Employee</button>
     </div>
 );
