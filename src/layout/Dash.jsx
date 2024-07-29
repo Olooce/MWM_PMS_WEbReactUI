@@ -40,11 +40,12 @@ const Dash = ({ children }) => {
     const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
+    const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
 
     useEffect(() => {
-        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
         eventSource.onmessage = (event) => {
             setNotifications((prev) => [...prev, event.data]);
+
         };
 
         return () => eventSource.close();
