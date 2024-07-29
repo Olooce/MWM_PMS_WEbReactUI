@@ -39,10 +39,10 @@ const Dash = ({ children }) => {
     const closePopup = () => setShowPopup(false);
     const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
     const closeEmployeeDetails = () => setSelectedEmployee(null);
+    const clientId = '1';
 
     useEffect(() => {
-        const eventSource = new EventSource('http://localhost:8080/api/notifications');
-
+        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
         eventSource.onmessage = (event) => {
             setNotifications((prev) => [...prev, event.data]);
         };
