@@ -92,9 +92,17 @@ const ListEmployees = () => {
     }, [searchTerm]);
     
 
-    const handleExportTable = () => {
-        console.log("Table export started");
-    }
+    const handleExportTable = useCallback(async () => {
+        try {
+            console.log("Table export started");
+            setLoading(true);
+            const response = await exportTable('employees');
+        } catch (error) {
+            console.error("Error exporting table:", error);
+        } finally {
+            setLoading(false);
+        }
+    },);
 
     const handleShowAllEmployees = () => {
         setIsSearching(false);
