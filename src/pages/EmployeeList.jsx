@@ -77,6 +77,15 @@ const ListEmployees = () => {
         fetchEmployees();
     };
 
+    const handleExportSearch = () => {
+        console.log("Search export started");
+
+    }
+
+    const handleExportTable = () => {
+        console.log("Table export started");
+    }
+
     const handleShowAllEmployees = () => {
         setIsSearching(false);
         setSearchTerm('');
