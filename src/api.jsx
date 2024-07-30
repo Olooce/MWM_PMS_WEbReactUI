@@ -62,7 +62,11 @@ export const exportTable = (tableName) => api.post(`/api/export/${tableName}`);
 export const exportSearch = (tableName, searchTerm) => api.post(`/api/exportSearch/${tableName}`, null, {
   params: { searchTerm }
 });
-export const downloadExport = (fileId) => api.get(`/api/download/${fileId}`);
+export const downloadExport = (fileId) => 
+  api.get(`/api/download/${fileId}`, {
+      responseType: 'blob' // Ensure the response type is 'blob'
+  });
+
 
 
 export const getExports = (page = 1, size = 10) => api.get(`api/listExports?page=${page}&size=${size}`);
