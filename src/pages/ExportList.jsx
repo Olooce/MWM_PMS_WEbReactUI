@@ -20,7 +20,12 @@ export default function{
             setLoading(true);
             response = await getExports(page,size);
             data = response.data;
-            setExports(Array.isArray(data) ? data : [];)           
+            setExports(Array.isArray(data) ? data : []);           
+        } catch(error) {
+            setError(`Error fetching exports: ${error.message}`);
         }
-    });
+        finally{
+            setLoading(false);
+        }
+    }, [page, size]);
 }
