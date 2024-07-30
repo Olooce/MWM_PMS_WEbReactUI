@@ -16,7 +16,7 @@ import LoadingAnimation from './LoadingAnimation';
 import EmployeeDetailsModal from './modals/EmployeeDetailsModal';
 import AddEmployeeModal from './modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
-import '../styles/employeelistStyling.css';
+import '../styles/listStyling.css';
 
 
 

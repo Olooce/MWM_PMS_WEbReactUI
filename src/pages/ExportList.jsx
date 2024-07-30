@@ -54,7 +54,7 @@ export default function ExportList (){
     return (
         <>
         <Dash>
-            <div className="exports-list">
+            <div className="export-list">
                 <h2>Exports</h2>
                 {renderContent()}
                 <Pagination

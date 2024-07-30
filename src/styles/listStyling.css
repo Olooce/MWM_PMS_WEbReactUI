@@ -10,6 +10,12 @@
     flex-direction: column;
     height: 100%;
   }
+
+  .export-list{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
   
   .loading-animation {
     display: flex;
