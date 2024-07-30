@@ -41,6 +41,7 @@ const EmployeeTable = ({ employees, page, size, showEmployeeDetails }) => {
             key: 'index',
             label: '#',
             render: (value, item, index) => (
+                console.log(index),
                 <button className="cell-btn" onClick={() => showEmployeeDetails(item)}>
                     {(page - 1) * size + index + 1}
                 </button>
