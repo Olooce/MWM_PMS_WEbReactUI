@@ -41,16 +41,16 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
 
-    useEffect(() => {
-        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
-        eventSource.onmessage = (event) => {
-            setNotifications((prev) => [...prev, event.data]);
-            console.log(event);
+    // useEffect(() => {
+    //     const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
+    //     eventSource.onmessage = (event) => {
+    //         setNotifications((prev) => [...prev, event.data]);
+    //         console.log(event);
 
-        };
+    //     };
 
-        return () => eventSource.close();
-    }, []);
+    //     return () => eventSource.close();
+    // }, []);
 
     return (
         <div className="dashboard-layout">
