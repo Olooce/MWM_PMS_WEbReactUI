@@ -4,8 +4,7 @@ import { downloadExport } from '../../api';
 
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
-export default function ExportsTable({exports, page, size}) {
-    console.log(exports);
+export default function ExportsTable({ exports, page, size }) {
     const columns = [
         { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
         { header: 'File Name', key: 'fileName' },
@@ -17,38 +16,38 @@ export default function ExportsTable({exports, page, size}) {
         {
             header: 'Download', render: (value, item, index) => (
                 <button className="cell-btn" onClick={() => handleDownload(item)}>
-                    <FileDownloadIcon/>
+                    <FileDownloadIcon />
                 </button>
             ),
         }
     ];
 
     const handleDownload = async (item) => {
+        const fileId = item.fileId; // Ensure fileId is defined here
         try {
-            const fileId = item.fileId
             const response = await downloadExport(fileId);
-            
+
             // Check if the response is okay
             if (response.status === 200) {
                 // Create a new Blob object using the response data
                 const blob = new Blob([response.data], { type: response.headers['content-type'] });
-                
+
                 // Create a link element
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
-                
+
                 // Set the link's href to the blob URL
                 link.href = url;
-                
+
                 // Set the download attribute with a filename
                 link.setAttribute('download', `${fileId}.ext`); // Adjust the filename and extension as needed
-                
+
                 // Append the link to the body
                 document.body.appendChild(link);
-                
+
                 // Trigger the download
                 link.click();
-                
+
                 // Clean up
                 link.remove();
                 window.URL.revokeObjectURL(url);
@@ -59,17 +58,14 @@ export default function ExportsTable({exports, page, size}) {
             console.error(`Failed to download file ${fileId}: ${error.message}`);
         }
     };
-    
 
     return (
-        <>
-            <Table
-                data={exports}
-                columns={columns}
-                onRowClick={() => {}}
-                page={page}
-                size={size}
-            />
-        </>
+        <Table
+            data={exports}
+            columns={columns}
+            onRowClick={() => { }}
+            page={page}
+            size={size}
+        />
     );
-};
+}
