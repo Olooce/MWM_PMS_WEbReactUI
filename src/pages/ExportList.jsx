@@ -14,19 +14,37 @@ export default function ExportList (){
     const [inputPage, setInputPage] = useState(1);
     const [inputSize, setInputSize] = useState(10);
 
+    // const fetchExports = useCallback(async () => {
+    //     try {
+    //         setLoading(true);
+    //         const response = await getExports(page, size);
+    //         const data = response.data;
+    //         setExports(Array.isArray(data) ? data : []);
+    //     } catch (error) {
+    //         setError(`Error fetching exports: ${error.message}`);
+    //     }
+    //     finally {
+    //         setLoading(false);
+    //     }
+    // }, [page, size]);
+
     const fetchExports = useCallback(async () => {
         try {
             setLoading(true);
             const response = await getExports(page, size);
             const data = response.data;
-            setExports(Array.isArray(data) ? data : []);
+            if (Array.isArray(data)) {
+                setExports(data);
+            } else {
+                setExports([]);
+            }
         } catch (error) {
             setError(`Error fetching exports: ${error.message}`);
-        }
-        finally {
+        } finally {
             setLoading(false);
         }
     }, [page, size]);
+    
 
     useEffect(() => {
         fetchExports();
