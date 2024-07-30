@@ -13,7 +13,6 @@ const Dash = ({ children }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
-    const [notifications, setNotifications] = useState([]);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
@@ -42,20 +41,7 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
 
-    // Debounced function to batch notification updates
-    const debouncedSetNotifications = debounce((newNotification) => {
-        setNotifications(prev => [...prev, newNotification]);
-    }, 300); // Adjust debounce delay as needed
-
-    useEffect(() => {
-        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
-        eventSource.onmessage = (event) => {
-            debouncedSetNotifications(event.data);
-            console.log(event);
-        };
-
-        return () => eventSource.close();
-    }, [clientId]);
+    
 
     return (
         <div className="dashboard-layout">
@@ -102,7 +88,7 @@ const Dash = ({ children }) => {
 
                 {/* Notification Drawer */}
                 <NotificationDrawer
-                    notifications={notifications}
+                    clientId={clientId}
                     isOpen={isDrawerOpen}
                     onClose={toggleDrawer}
                 />
