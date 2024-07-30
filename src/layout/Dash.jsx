@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { debounce } from 'lodash';
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
 import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
@@ -41,16 +42,20 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
 
-    // useEffect(() => {
-    //     const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
-    //     eventSource.onmessage = (event) => {
-    //         setNotifications((prev) => [...prev, event.data]);
-    //         console.log(event);
+    // Debounced function to batch notification updates
+    const debouncedSetNotifications = debounce((newNotification) => {
+        setNotifications(prev => [...prev, newNotification]);
+    }, 300); // Adjust debounce delay as needed
 
-    //     };
+    useEffect(() => {
+        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
+        eventSource.onmessage = (event) => {
+            debouncedSetNotifications(event.data);
+            console.log(event);
+        };
 
-    //     return () => eventSource.close();
-    // }, []);
+        return () => eventSource.close();
+    }, [clientId]);
 
     return (
         <div className="dashboard-layout">
