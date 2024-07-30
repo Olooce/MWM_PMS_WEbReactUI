@@ -2,6 +2,7 @@ import React from 'react';
 import Table from '../../components/Table';
 
 export default function ExportsTable(exports, page, size) {
+    console.log(exports);
     const columns = [
         { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
         { header: 'File Name', key: 'fileName' },
@@ -23,5 +24,8 @@ export default function ExportsTable(exports, page, size) {
         data={exports}
         columns={columns}
         onRowClick={handleDownload}
-    )
-}
+        page={page}
+        size={size}
+        />
+    );
+};
