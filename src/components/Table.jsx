@@ -7,7 +7,7 @@ const Table = ({ data, columns, onRowClick, page, size }) => (
             <thead>
                 <tr>
                     {columns.map((col) => (
-                        <th key={col.key}>{col.label}</th>
+                        <th key={col.key || col.label}>{col.label}</th>
                     ))}
                 </tr>
             </thead>
@@ -15,9 +15,11 @@ const Table = ({ data, columns, onRowClick, page, size }) => (
                 {data.map((item, rowIndex) => (
                     <tr key={item.id} onClick={() => onRowClick && onRowClick(item)}>
                         {columns.map((col, colIndex) => (
-                            <td key={col.key}>
+                            <td key={col.key || col.label}>
                                 {col.render
                                     ? col.render(item[col.key], item, rowIndex)
+                                    : col.accessor
+                                    ? col.accessor(item, rowIndex)
                                     : item[col.key]}
                             </td>
                         ))}
@@ -34,6 +36,7 @@ Table.propTypes = {
         key: PropTypes.string,
         label: PropTypes.string.isRequired,
         render: PropTypes.func,
+        accessor: PropTypes.func,
     })).isRequired,
     onRowClick: PropTypes.func,
     page: PropTypes.number,
@@ -43,7 +46,7 @@ Table.propTypes = {
 Table.defaultProps = {
     onRowClick: null,
     page: 1,
-    size: 1
+    size: 1,
 };
 
 export default Table;
