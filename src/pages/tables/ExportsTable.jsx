@@ -10,7 +10,7 @@ export default function ExportsTable(exports, page, size) {
         { header: 'File Size', key: 'file_size' },
         { header: 'Status', key: 'status' },
         { header: 'Time Initiated', key: 'time_initiated' },
-        { headr: 'Time Completed', key: 'time_completed'},
+        { headr: 'Time Completed', key: 'time_completed' },
         {
             header: 'Download', render: (value, item, index) => (
                 <button className="cell-btn" onClick={() => handleDownload(item.fileId)}>
@@ -20,12 +20,14 @@ export default function ExportsTable(exports, page, size) {
     ];
 
     return (
-        <Table
-        data={exports}
-        columns={columns}
-        onRowClick={handleDownload}
-        page={page}
-        size={size}
-        />
+        <>
+            <Table
+                data={exports}
+                columns={columns}
+                onRowClick={handleDownload}
+                page={page}
+                size={size}
+            />
+        </>
     );
 };

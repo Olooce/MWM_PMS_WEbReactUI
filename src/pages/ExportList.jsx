@@ -48,10 +48,11 @@ export default function ExportList (){
     };
 
     return (
+        <>
         <Dash>
             <div className="exports-list">
                 <h2>Exports</h2>
-                {renderContent}
+                {renderContent()}
                 <Pagination
                     page={page}
                     setPage={setPage}
@@ -64,5 +65,6 @@ export default function ExportList (){
                 />
             </div>
         </Dash>
+        </>
     );
 };
