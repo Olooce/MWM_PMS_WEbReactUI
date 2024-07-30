@@ -27,28 +27,15 @@ export default function ExportsTable({ exports, page, size }) {
         try {
             const response = await downloadExport(fileId);
 
-            // Check if the response is okay
+    
             if (response.status === 200) {
-                // Create a new Blob object using the response data
                 const blob = new Blob([response.data], { type: response.headers['content-type'] });
-
-                // Create a link element
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
-
-                // Set the link's href to the blob URL
                 link.href = url;
-
-                // Set the download attribute with a filename
-                link.setAttribute('download', `${fileId}.xlsx`); // Adjust the filename and extension as needed
-
-                // Append the link to the body
+                link.setAttribute('download', `${fileId}.xlsx`); 
                 document.body.appendChild(link);
-
-                // Trigger the download
                 link.click();
-
-                // Clean up
                 link.remove();
                 window.URL.revokeObjectURL(url);
             } else {
