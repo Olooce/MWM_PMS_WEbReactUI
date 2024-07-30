@@ -9,6 +9,8 @@ import '../styles/layoutStyling.css';
 
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const Dash = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -44,27 +46,27 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
 
-    
+
 
     return (
         <div className="dashboard-layout">
             <nav className="navbar">
                 <div>
                     <button className="icon-button" onClick={toggleCollapse}>
-                        {isCollapsed ? MenuOpenIcon : MenuIcon}
+                        {isCollapsed ? <MenuIcon /> : <MenuOpenIcon />}
                     </button>
                 </div>
                 <div className="navbar-left">
-                    <img src="src/assets/logo-no-background.svg"  className="logo" />
+                    <img src="src/assets/logo-no-background.svg" className="logo" />
                 </div>
                 <div className="navbar-center">
                     {/* Search bar*/}
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button" onClick={toggleDrawer}>
-                        <i className="bell-icon"></i>
+                       <NotificationsIcon/>
                     </button>
-                    <button className="icon-button"><i className="gift-icon"></i></button>
+                    <button className="icon-button"><SettingsIcon/></button>
                     <button className="icon-button"><i className="help-icon"></i></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
