@@ -7,7 +7,7 @@ const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 
             <thead>
                 <tr>
                     {columns.map((col) => (
-                        <th key={col.key || col.label}>{col.label}</th>
+                        <th key={col.key || col.header}>{col.header}</th>
                     ))}
                 </tr>
             </thead>
@@ -15,7 +15,7 @@ const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 
                 {data.map((item, rowIndex) => (
                     <tr key={item.id} onClick={() => onRowClick && onRowClick(item)}>
                         {columns.map((col, colIndex) => (
-                            <td key={col.key || col.label}>
+                            <td key={col.key || col.header}>
                                 {col.render
                                     ? col.render(item[col.key], item, rowIndex)
                                     : col.accessor
@@ -34,7 +34,7 @@ Table.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     columns: PropTypes.arrayOf(PropTypes.shape({
         key: PropTypes.string,
-        label: PropTypes.string.isRequired,
+        header: PropTypes.string.isRequired,
         render: PropTypes.func,
         accessor: PropTypes.func,
     })).isRequired,

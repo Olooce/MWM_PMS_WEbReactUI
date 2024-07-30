@@ -39,16 +39,16 @@ const EmployeeTable = ({ employees, page, size, showEmployeeDetails }) => {
     const columns = [
         {
             key: 'index',
-            label: '#',
+            header: '#',
             render: (value, item, rowIndex) => (
                 <button className="cell-btn" onClick={() => showEmployeeDetails(item)}>
                     {(page - 1) * size + rowIndex + 1}
                 </button>
             ),
         },
-        { key: 'name', label: 'Name' },
-        { key: 'departmentId', label: 'Department ID' },
-        { key: 'employmentType', label: 'Employment Type' },
+        { key: 'name', header: 'Name' },
+        { key: 'departmentId', header: 'Department ID' },
+        { key: 'employmentType', header: 'Employment Type' },
     ];
 
     return (
