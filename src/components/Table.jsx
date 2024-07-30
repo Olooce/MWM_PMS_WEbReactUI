@@ -29,7 +29,7 @@ const Table = ({ data, columns, onRowClick, page, size }) => (
 Table.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     columns: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string.isRequired,
+        key: PropTypes.string,
         label: PropTypes.string.isRequired,
         render: PropTypes.func,
     })).isRequired,
