@@ -12,6 +12,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import DescriptionIcon from '@mui/icons-material/Description';
+import BusinessIcon from '@mui/icons-material/Business';
 
 const Dash = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -78,13 +83,13 @@ const Dash = ({ children }) => {
             <div className="main-content-wrapper">
                 <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
                     <ul>
-                        <li><Link to="/dashboard"><i className="icon-dashboard"></i><span>Dashboard</span></Link></li>
-                        <li><Link to="/employees"><i className="icon-workers"></i><span>Employees</span></Link></li>
-                        <li><Link to="/salaries"><i className="icon-payroll"></i><span>Payroll</span></Link></li>
-                        <li><Link to="/reports"><i className="icon-reports"></i><span>Exports</span></Link></li>
-                        <li><Link to="/filings"><i className="icon-filings"></i><span>Filings</span></Link></li>
-                        <li><Link to="/hr"><i className="icon-hr"></i><span>HR</span></Link></li>
-                        <li><Link to="/company"><i className="icon-company"></i><span>Company</span></Link></li>
+                        <li><Link to="/dashboard"><DashboardIcon /><span>Dashboard</span></Link></li>
+                        <li><Link to="/employees"><PeopleIcon /><span>Employees</span></Link></li>
+                        <li><Link to="/salaries"><AttachMoneyIcon /><span>Payroll</span></Link></li>
+                        <li><Link to="/reports"><DescriptionIcon /><span>Exports</span></Link></li>
+                        <li><Link to="/filings"><DescriptionIcon /><span>Filings</span></Link></li>
+                        <li><Link to="/hr"><PeopleIcon /><span>HR</span></Link></li>
+                        <li><Link to="/company"><BusinessIcon /><span>Company</span></Link></li>
                     </ul>
                 </nav>
 
