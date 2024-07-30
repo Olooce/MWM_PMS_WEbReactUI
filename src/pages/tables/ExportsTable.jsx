@@ -11,13 +11,17 @@ export default function ExportsTable(exports, page, size) {
         { header: 'Status', key: 'status' },
         { header: 'Time Initiated', key: 'time_initiated' },
         { headr: 'Time Completed', key: 'time_completed' },
-        {
-            header: 'Download', render: (value, item, index) => (
-                <button className="cell-btn" onClick={() => handleDownload(item.fileId)}>
-                </button>
-            ),
-        }
+        // {
+        //     header: 'Download', render: (value, item, index) => (
+        //         <button className="cell-btn" onClick={() => handleDownload(item.fileId)}>
+        //         </button>
+        //     ),
+        // }
     ];
+
+    const handleDownload = (item) => {
+        console.log(item);
+    }
 
     return (
         <>
