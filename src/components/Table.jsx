@@ -12,11 +12,13 @@ const Table = ({ data, columns, onRowClick, page, size }) => (
                 </tr>
             </thead>
             <tbody>
-                {data.map((item, index) => (
+                {data.map((item, rowIndex) => (
                     <tr key={item.id} onClick={() => onRowClick && onRowClick(item)}>
-                        {columns.map((col) => (
+                        {columns.map((col, colIndex) => (
                             <td key={col.key}>
-                                {col.render ? col.render(item[col.key], item) : item[col.key]}
+                                {col.render
+                                    ? col.render(item[col.key], item, rowIndex)
+                                    : item[col.key]}
                             </td>
                         ))}
                     </tr>
@@ -41,7 +43,7 @@ Table.propTypes = {
 Table.defaultProps = {
     onRowClick: null,
     page: 1,
-    size: 10,
+    size: 1
 };
 
 export default Table;
