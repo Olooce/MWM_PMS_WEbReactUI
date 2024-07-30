@@ -55,7 +55,7 @@ const Dash = ({ children }) => {
                     <img src="src/assets/logo-no-background.svg"  className="logo" />
                 </div>
                 <div className="navbar-center">
-                    {/* Search bar could go here */}
+                    {/* Search bar*/}
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button" onClick={toggleDrawer}>
