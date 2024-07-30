@@ -11,7 +11,7 @@ import {
 import Dash from "../layout/Dash";
 import Pagination from '../components/Pagination';
 import SearchBar from './SearchBar';
-import EmployeeTable from './EmployeeTable';
+import EmployeeTable from './tables/EmployeeTable';
 import LoadingAnimation from './LoadingAnimation';
 import EmployeeDetailsModal from './modals/EmployeeDetailsModal';
 import AddEmployeeModal from './modals/AddEmployeeModal';

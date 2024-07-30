@@ -1,16 +1,27 @@
 import React from 'react';
-import Table from '../conponents/Table';
-import { GiHealthDecrease } from 'react-icons/gi';
+import Table from '../../components/Table';
 
-export default function ExportsTable (exports, page, size) {
+export default function ExportsTable(exports, page, size) {
     const columns = [
         { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
-        {header: 'File Name', key: 'fileName'},
-        {header: 'Total Records', key: 'total_rows'},
-        {header: 'File Size', key: 'file_size'},
-        {header: 'Status', key: 'status'},
-    {header: 'Time Initiated', key: 'time_initiated'},
-    {headr: 'Time Completed', key, 'time_completed'},
-    {header: 'Download', rendor: handleDownload}
+        { header: 'File Name', key: 'fileName' },
+        { header: 'Total Records', key: 'total_rows' },
+        { header: 'File Size', key: 'file_size' },
+        { header: 'Status', key: 'status' },
+        { header: 'Time Initiated', key: 'time_initiated' },
+        { headr: 'Time Completed', key: 'time_completed'},
+        {
+            header: 'Download', render: (value, item, index) => (
+                <button className="cell-btn" onClick={() => handleDownload(item.fileId)}>
+                </button>
+            ),
+        }
     ];
+
+    return (
+        <Table
+        data={exports}
+        columns={columns}
+        onRowClick={handleDownload}
+    )
 }

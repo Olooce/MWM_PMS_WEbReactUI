@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { getAllSalaries } from '../api';
 import Dash from "../layout/Dash";
 import LoadingAnimation from './LoadingAnimation';
-import SalariesTable from './SalariesTable';
+import SalariesTable from './tables/SalariesTable';
 import Pagination from '../components/Pagination';
 
 const ListSalaries = () => {
