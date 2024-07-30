@@ -81,7 +81,7 @@ const Dash = ({ children }) => {
                         <li><Link to="/dashboard"><i className="icon-dashboard"></i><span>Dashboard</span></Link></li>
                         <li><Link to="/employees"><i className="icon-workers"></i><span>Employees</span></Link></li>
                         <li><Link to="/salaries"><i className="icon-payroll"></i><span>Payroll</span></Link></li>
-                        <li><Link to="/reports"><i className="icon-reports"></i><span>Reports</span></Link></li>
+                        <li><Link to="/reports"><i className="icon-reports"></i><span>Exports</span></Link></li>
                         <li><Link to="/filings"><i className="icon-filings"></i><span>Filings</span></Link></li>
                         <li><Link to="/hr"><i className="icon-hr"></i><span>HR</span></Link></li>
                         <li><Link to="/company"><i className="icon-company"></i><span>Company</span></Link></li>

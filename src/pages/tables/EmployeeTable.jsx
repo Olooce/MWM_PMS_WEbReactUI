@@ -55,7 +55,7 @@ const EmployeeTable = ({ employees, page, size, showEmployeeDetails }) => {
         <Table
             data={employees}
             columns={columns}
-            onRowClick={showEmployeeDetails}
+            onRowClick={() => {}}
             page={page}
             size={size}
         />

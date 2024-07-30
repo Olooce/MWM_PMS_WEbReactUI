@@ -45,7 +45,7 @@ const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
       data={salaries}
       page={page}
       size={size}
-      onRowClick={showSalaryDetails}
+      onRowClick={() => {}}
     />
   );
 };

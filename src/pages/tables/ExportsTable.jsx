@@ -9,11 +9,11 @@ export default function ExportsTable({exports, page, size}) {
     const columns = [
         { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
         { header: 'File Name', key: 'fileName' },
-        { header: 'Total Records', key: 'total_rows' },
-        { header: 'File Size', key: 'file_size' },
+        { header: 'Total Records', key: 'totalRows' },
+        { header: 'File Size', key: 'fileSize' },
         { header: 'Status', key: 'status' },
-        { header: 'Time Initiated', key: 'time_initiated' },
-        { headr: 'Time Completed', key: 'time_completed' },
+        { header: 'Time Initiated', key: 'timeInitiated' },
+        { header: 'Time Completed', key: 'timeCompleted' },
         {
             header: 'Download', render: (value, item, index) => (
                 <button className="cell-btn" onClick={() => handleDownload(item)}>
@@ -66,7 +66,7 @@ export default function ExportsTable({exports, page, size}) {
             <Table
                 data={exports}
                 columns={columns}
-                onRowClick={handleDownload}
+                onRowClick={() => {}}
                 page={page}
                 size={size}
             />
