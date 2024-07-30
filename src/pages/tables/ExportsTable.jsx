@@ -20,9 +20,9 @@ export default function ExportsTable({exports, page, size}) {
         }
     ];
 
-    const handleDownload = async (fileId) => {
+    const handleDownload = async (item) => {
         try {
-            const response = await downloadExport(fileId);
+            const response = await downloadExport(item.fileId);
             
             // Check if the response is okay
             if (response.status === 200) {
