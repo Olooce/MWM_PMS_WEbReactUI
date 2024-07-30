@@ -51,7 +51,7 @@ const Dash = ({ children }) => {
             <nav className="navbar">
                 <div>
                     <button className="icon-button" onClick={toggleCollapse}>
-                        {isCollapsed ? MenuOpenIcon : '>'}
+                        {isCollapsed ? MenuOpenIcon : MenuIcon}
                     </button>
                 </div>
                 <div className="navbar-left">
