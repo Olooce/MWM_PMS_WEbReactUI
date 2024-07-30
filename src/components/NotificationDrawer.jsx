@@ -9,7 +9,7 @@ const NotificationDrawer = ({ clientId, isOpen, onClose }) => {
     // Debounced function to batch notification updates
     const debouncedSetNotifications = debounce((newNotification) => {
         setNotifications(prev => [...prev, newNotification]);
-    }, 300); // Adjust debounce delay as needed
+    }, 300); 
 
     useEffect(() => {
         const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
