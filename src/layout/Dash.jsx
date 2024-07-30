@@ -11,6 +11,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Dash = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -67,7 +68,7 @@ const Dash = ({ children }) => {
                        <NotificationsIcon/>
                     </button>
                     <button className="icon-button"><SettingsIcon/></button>
-                    <button className="icon-button"><i className="help-icon"></i></button>
+                    <button className="icon-button"><AccountCircleIcon/></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
                     </div>
