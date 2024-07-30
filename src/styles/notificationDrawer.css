@@ -1,10 +1,10 @@
-/* .notification-drawer {
+.notification-drawer {
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
     width: 300px;
-    background: white;
+    background: rgb(224, 207, 207);
     border-left: 1px solid #ddd;
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     padding-bottom: 8px;
 }
 
@@ -55,66 +55,4 @@
 
 .drawer-content p {
     color: #666;
-} */
-
-
-/* Drawer Header Styling */
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #0c569b; /* Dark blue background */
-    color: white;
-    border-bottom: 1px solid #005bb5; /* Slightly lighter blue for the border */
 }
-
-.drawer-header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 500;
-}
-
-.close-drawer-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-drawer-btn:hover {
-    color: #ff6f61; /* Light coral color on hover */
-}
-
-/* Drawer Content Styling */
-.drawer-content {
-    padding: 1rem;
-    background-color: #f4f4f4; /* Light gray background for content area */
-    color: #333; /* Darker text for better readability */
-    height: calc(100% - 4rem); /* Adjust based on the height of the header */
-    overflow-y: auto;
-}
-
-.drawer-content ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.drawer-content ul li {
-    padding: 0.5rem;
-    border-bottom: 1px solid #ddd; /* Light gray border for list items */
-}
-
-.drawer-content ul li:last-child {
-    border-bottom: none;
-}
-
-.drawer-content p {
-    margin: 1rem 0;
-    font-size: 1rem;
-    color: #666; /* Slightly lighter text color for the no notifications message */
-}
-
