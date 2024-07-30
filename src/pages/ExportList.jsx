@@ -5,7 +5,7 @@ import LoadingAnimation from './LoadingAnimation';
 import ExportsTable from './ExportsTable';
 import Pagination from '../components/Pagination';
 
-export default function{
+export default function ExportList (){
     const [exports, setExports] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,13 +13,12 @@ export default function{
     const [size, setSize] = useState(10);
     const [inputPage, setInputPage] = useState(1);
     const [inputSize, setInputSize] = useState(10);
-    const response, data;
 
     const fetchExports = useCallback(async () => {
         try {
             setLoading(true);
-            response = await getExports(page, size);
-            data = response.data;
+            const response = await getExports(page, size);
+            const data = response.data;
             setExports(Array.isArray(data) ? data : []);
         } catch (error) {
             setError(`Error fetching exports: ${error.message}`);

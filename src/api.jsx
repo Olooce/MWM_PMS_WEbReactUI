@@ -65,6 +65,8 @@ export const exportSearch = (tableName, searchTerm) => api.post(`/api/exportSear
 export const downloadExport = (fileId) => api.get(`/api/download/${fileId}`);
 
 
+export const getExports = (page = 1, size = 10) => api.get(`api/listExports?page=${page}&size=${size}`);
+
 
 
 
