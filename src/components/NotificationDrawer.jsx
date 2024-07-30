@@ -6,7 +6,6 @@ import '../styles/notificationDrawer.css';
 const NotificationDrawer = ({ clientId, isOpen, onClose }) => {
     const [notifications, setNotifications] = useState([]);
 
-    // Debounced function to batch notification updates
     const debouncedSetNotifications = debounce((newNotification) => {
         setNotifications(prev => [...prev, newNotification]);
     }, 300); 
