@@ -23,10 +23,9 @@ export default function ExportsTable({ exports, page, size }) {
     ];
 
     const handleDownload = async (item) => {
-        const fileId = item.fileId; // Ensure fileId is defined here
+        const fileId = item.fileId;
         try {
             const response = await downloadExport(fileId);
-
     
             if (response.status === 200) {
                 const blob = new Blob([response.data], { type: response.headers['content-type'] });
