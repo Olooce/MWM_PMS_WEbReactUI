@@ -2,6 +2,8 @@ import React from 'react';
 import Table from '../../components/Table';
 import { downloadExport } from '../../api';
 
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+
 export default function ExportsTable({exports, page, size}) {
     console.log(exports);
     const columns = [
@@ -15,6 +17,7 @@ export default function ExportsTable({exports, page, size}) {
         {
             header: 'Download', render: (value, item, index) => (
                 <button className="cell-btn" onClick={() => handleDownload(item)}>
+                    <FileDownloadIcon/>
                 </button>
             ),
         }
