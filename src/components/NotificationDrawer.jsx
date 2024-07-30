@@ -1,4 +1,5 @@
-import React, {useState, debounce} from 'react';
+import React, {useState, useEffect} from 'react';
+import { debounce } from 'lodash';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/notificationDrawer.css';
 

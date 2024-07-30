@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { debounce } from 'lodash';
+
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
 import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
