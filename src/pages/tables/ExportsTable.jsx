@@ -40,7 +40,7 @@ export default function ExportsTable({ exports, page, size }) {
                 link.href = url;
 
                 // Set the download attribute with a filename
-                link.setAttribute('download', `${fileId}.ext`); // Adjust the filename and extension as needed
+                link.setAttribute('download', `${fileId}.xlsx`); // Adjust the filename and extension as needed
 
                 // Append the link to the body
                 document.body.appendChild(link);
