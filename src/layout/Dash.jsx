@@ -7,6 +7,9 @@ import NotificationDrawer from '../components/NotificationDrawer';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';
 
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import MenuIcon from '@mui/icons-material/Menu';
+
 const Dash = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -48,7 +51,7 @@ const Dash = ({ children }) => {
             <nav className="navbar">
                 <div>
                     <button className="icon-button" onClick={toggleCollapse}>
-                        {isCollapsed ? '<' : '>'}
+                        {isCollapsed ? MenuOpenIcon : '>'}
                     </button>
                 </div>
                 <div className="navbar-left">

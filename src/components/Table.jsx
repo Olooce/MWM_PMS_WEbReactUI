@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Table = ({ data, columns, onRowClick, page, size }) => (
+const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 }) => (
     <div className="table-wrapper">
         <table className="fl-table">
             <thead>
@@ -41,12 +41,6 @@ Table.propTypes = {
     onRowClick: PropTypes.func,
     page: PropTypes.number,
     size: PropTypes.number,
-};
-
-Table.defaultProps = {
-    onRowClick: null,
-    page: 1,
-    size: 1,
 };
 
 export default Table;

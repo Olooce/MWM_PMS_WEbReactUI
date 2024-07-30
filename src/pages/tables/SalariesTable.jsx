@@ -29,7 +29,7 @@
 
 
 import React from 'react';
-import Table from '../../components/Table'; 
+import Table from '../../components/Table';
 
 const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
   const columns = [
