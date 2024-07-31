@@ -29,7 +29,7 @@
 
 
 import React from 'react';
-import Table from '../components/Table'; 
+import Table from '../../components/Table';
 
 const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
   const columns = [
@@ -45,7 +45,7 @@ const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
       data={salaries}
       page={page}
       size={size}
-      onRowClick={showSalaryDetails}
+      onRowClick={() => {}}
     />
   );
 };

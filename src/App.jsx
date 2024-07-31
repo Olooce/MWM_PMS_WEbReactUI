@@ -6,20 +6,22 @@ import EmployeeDetailsModal from './pages/modals/EmployeeDetailsModal';
 import Homepage from './pages/Homepage';
 import Loginpage from './pages/Loginpage';
 import { Dashboard } from './pages/Dashboard';
+import ExportList from './pages/ExportList'
 
 const App = () => {
   return (
-    <Router>   
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/salaries" element={<ListSalaries />} /> 
-          <Route path="/employee/:id" element={<EmployeeDetailsModal />} />
-          <Route path="/employees" element={<Listemployees/>} /> 
-          <Route path="/login" element={<Loginpage />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/salaries" element={<ListSalaries />} />
+        <Route path="/employee/:id" element={<EmployeeDetailsModal />} />
+        <Route path="/employees" element={<Listemployees />} />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/reports" element={<ExportList />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Router>
   );
 };

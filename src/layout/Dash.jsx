@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
-import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
+import EmployeeDetails from '../components/modals/EmployeeDetailsModal';
 import NotificationDrawer from '../components/NotificationDrawer';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';
+
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import DescriptionIcon from '@mui/icons-material/Description';
+import BusinessIcon from '@mui/icons-material/Business';
 
 const Dash = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -12,7 +24,6 @@ const Dash = ({ children }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
-    const [notifications, setNotifications] = useState([]);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
@@ -39,41 +50,32 @@ const Dash = ({ children }) => {
     const closePopup = () => setShowPopup(false);
     const showEmployeeDetails = (employee) => setSelectedEmployee(employee);
     const closeEmployeeDetails = () => setSelectedEmployee(null);
+    const clientId = '1';
 
-    useEffect(() => {
-        const eventSource = new EventSource('http://localhost:8080/api/notifications');
 
-        eventSource.onmessage = (event) => {
-            setNotifications((prev) => [...prev, event.data]);
-        };
-
-        return () => eventSource.close();
-    }, []);
 
     return (
         <div className="dashboard-layout">
             <nav className="navbar">
                 <div>
                     <button className="icon-button" onClick={toggleCollapse}>
-                        {isCollapsed ? '<' : '>'}
+                        {isCollapsed ? <MenuIcon /> : <MenuOpenIcon />}
                     </button>
                 </div>
                 <div className="navbar-left">
-                    {/* <img src="../assets/react.svg" alt="Logo" className="logo" /> */}
+                    <img src="src/assets/logo-no-background.svg" className="logo" />
                 </div>
                 <div className="navbar-center">
-                    {/* Search bar could go here */}
+                    {/* Search bar*/}
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button" onClick={toggleDrawer}>
-                        <i className="bell-icon"></i>
+                        <NotificationsIcon />
                     </button>
-                    <button className="icon-button"><i className="gift-icon"></i></button>
-                    <button className="icon-button"><i className="help-icon"></i></button>
+                    <button className="icon-button"><SettingsIcon /></button>
+                    <button className="icon-button"><AccountCircleIcon /></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
-                        <span className="user-name">Name</span>
-                        <span className="user-role">Role</span>
                     </div>
                 </div>
             </nav>
@@ -81,13 +83,13 @@ const Dash = ({ children }) => {
             <div className="main-content-wrapper">
                 <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
                     <ul>
-                        <li><Link to="/dashboard"><i className="icon-dashboard"></i><span>Dashboard</span></Link></li>
-                        <li><Link to="/employees"><i className="icon-workers"></i><span>Employees</span></Link></li>
-                        <li><Link to="/salaries"><i className="icon-payroll"></i><span>Payroll</span></Link></li>
-                        <li><Link to="/reports"><i className="icon-reports"></i><span>Reports</span></Link></li>
-                        <li><Link to="/filings"><i className="icon-filings"></i><span>Filings</span></Link></li>
-                        <li><Link to="/hr"><i className="icon-hr"></i><span>HR</span></Link></li>
-                        <li><Link to="/company"><i className="icon-company"></i><span>Company</span></Link></li>
+                        <li><Link to="/dashboard"><DashboardIcon /><span>Dashboard</span></Link></li>
+                        <li><Link to="/employees"><PeopleIcon /><span>Employees</span></Link></li>
+                        <li><Link to="/salaries"><AttachMoneyIcon /><span>Payroll</span></Link></li>
+                        <li><Link to="/reports"><DescriptionIcon /><span>Exports</span></Link></li>
+                        <li><Link to="/filings"><DescriptionIcon /><span>Filings</span></Link></li>
+                        <li><Link to="/hr"><PeopleIcon /><span>HR</span></Link></li>
+                        <li><Link to="/company"><BusinessIcon /><span>Company</span></Link></li>
                     </ul>
                 </nav>
 
@@ -97,7 +99,7 @@ const Dash = ({ children }) => {
 
                 {/* Notification Drawer */}
                 <NotificationDrawer
-                    notifications={notifications}
+                    clientId={clientId}
                     isOpen={isDrawerOpen}
                     onClose={toggleDrawer}
                 />

@@ -36,7 +36,8 @@
     width: 100%;
     max-width: 18.75rem;
     padding: 0.5rem;
-    border: 1px solid #005bb5; /* Border color matching the table */
+    border: 1px solid #005bb5;
+    /* Border color matching the table */
 }
 
 .navbar-right {
@@ -45,20 +46,20 @@
 }
 
 .icon-button {
-    background-color: #0e0e11;
-    border: none; 
+    background-color: none;
+    border: none;
     border-radius: 50%;
-    color: #fff; 
+    color: #fff;
     cursor: pointer;
-    font-size: 2.5rem; 
-    height: 2rem; 
-    width: 2rem; 
+    font-size: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     padding: 1rem;
-    margin: 0 0.5rem; 
+    margin: 0 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
 .icon-button i {
     margin-right: 0.5rem;
@@ -97,37 +98,47 @@
 .main-content-wrapper {
     display: flex;
     flex: 1;
-    padding-top: 3.75rem; /* Height of the navbar */
+    padding-top: 3.75rem;
+    /* Height of the navbar */
 }
+
 
 /* Sidebar styling */
 .sidebar {
     width: 15%;
-    background-color: #0066cc; 
+    background-color: #0c569b;
     padding: 1rem;
     transition: width 0.3s ease;
     overflow-y: auto;
     position: sticky;
-    top: 3.75rem; /* Below the navbar */
+    top: 3.75rem;
+    /* Below the navbar */
     height: calc(100vh - 3.75rem);
 }
 
 .sidebar.collapsed {
-    display: none;
+    width: 60px;
+    /* Set a smaller width when collapsed */
 }
 
 .sidebar ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 0;
+    margin: auto;
+    justify-content: space-between;
 }
 
 .sidebar ul li {
+    display: flex;
+    align-items: center;
     margin-bottom: 0.625rem;
 }
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: #47b315;
     display: flex;
     align-items: center;
 }
@@ -140,43 +151,29 @@
 .sidebar ul li a .icon-hr,
 .sidebar ul li a .icon-company {
     margin-right: 0.625rem;
-    font-size: 1.25rem; /* Adjust icon size */
+    font-size: 1.25rem;
+}
+
+.sidebar ul li a span {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.collapsed ul li a span {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
 }
 
 /* Content area */
 .content-area {
     flex: 1;
     padding: 1.25rem;
-    background-color: #ffffff; /* White background matching the table */
+    background-color: #ffffff;
+    /* White background matching the table */
     overflow-y: auto;
 }
 
-.sidebar.collapsed + .content-area {
-    margin-left: 0%;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .navbar-center .search-input {
-        max-width: 12.5rem;
-    }
-
-    .sidebar {
-        width: 20%;
-    }
-
-    .sidebar.collapsed {
-        width: 7.5%;
-    }
-
-    .sidebar ul li a span {
-        display: none;
-    }
-
-    .content-area {
-        margin-left: 7.5%;
-    }
-}
 
 /* Popup */
 .popup-overlay {
@@ -217,7 +214,8 @@
     border-collapse: collapse;
 }
 
-.search-results th, .search-results td {
+.search-results th,
+.search-results td {
     border: 1px solid #ddd;
     padding: 8px;
 }

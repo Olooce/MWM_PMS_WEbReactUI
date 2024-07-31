@@ -4,7 +4,7 @@
     right: 0;
     height: 100%;
     width: 300px;
-    background: white;
+    background: rgb(224, 207, 207);
     border-left: 1px solid #ddd;
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
     padding-bottom: 8px;
 }
 

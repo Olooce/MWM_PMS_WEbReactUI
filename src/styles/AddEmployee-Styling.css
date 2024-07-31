@@ -19,8 +19,8 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
   max-width: 90%;
-  max-height: 90vh; 
-  overflow-y: scroll; 
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .modal-content h2 {

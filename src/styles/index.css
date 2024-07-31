@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -8,16 +8,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body{
+
+body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
-  background: rgba( 71, 147, 227, 1);
+  background: rgba(71, 147, 227, 1);
   margin: 0;
   /* display: flex; */
   place-items: center;
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 20px;
   text-transform: uppercase;
@@ -28,7 +29,7 @@ h1{
 
 }
 
-h2{
+h2 {
   text-align: center;
   font-size: 18px;
   text-transform: uppercase;
@@ -36,11 +37,13 @@ h2{
   color: rgb(14, 13, 13);
   padding: 30px 0;
 }
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -56,12 +59,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #3f45c5;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-

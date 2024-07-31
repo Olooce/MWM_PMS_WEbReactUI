@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Dash from "../layout/Dash";
 import { motion } from 'framer-motion';
 import { FaUsers, FaMoneyBillWave, FaBuilding, FaChartLine } from 'react-icons/fa';
-import '../styles/dashboardStyling.css';  
+import '../styles/dashboardStyling.css';
 
 export function Dashboard() {
     const [isLoaded, setIsLoaded] = useState(false);

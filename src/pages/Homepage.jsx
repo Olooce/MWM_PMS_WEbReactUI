@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/homepageStyling.css'; 
+import '../styles/homepageStyling.css';
 
 export default function Homepage() {
   return (
