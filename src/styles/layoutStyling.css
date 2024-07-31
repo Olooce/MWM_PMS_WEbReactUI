@@ -119,6 +119,7 @@
     top: 3.75rem;
     /* Below the navbar */
     height: calc(100vh - 3.75rem);
+    box-shadow: 4px 2px 4px  0px  rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.collapsed {
@@ -180,7 +181,7 @@
 .content-area {
     flex: 1;
     padding: 1.25rem;
-    background-color: #ffffff;
+    background-color: #d7d4d4;
 }
 
 /* Popup */

@@ -19,7 +19,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import BusinessIcon from '@mui/icons-material/Business';
 
 const Dash = ({ children }) => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
@@ -55,11 +55,11 @@ const Dash = ({ children }) => {
     return (
         <div className="dashboard-layout">
             <nav className="navbar">
-                <div>
+                {/* <div>
                     <button className="icon-button" onClick={toggleCollapse}>
                         {isCollapsed ? <MenuIcon /> : <MenuOpenIcon />}
                     </button>
-                </div>
+                </div> */}
                 <div className="navbar-left">
                     <img src="src/assets/logo-no-background.svg" className="logo" />
                 </div>
