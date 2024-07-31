@@ -6,7 +6,9 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 export default function ExportsTable({ exports, page, size }) {
     const columns = [
-        { header:'#', accessor: (index) => (page - 1) * size + index + 1 },
+        { header:'#', accessor: (item,index) =>  const value = (page - 1) * size + index + 1;
+            console.log("Index Value:", value);  // Debugging statement
+            return value; },
         { header: 'File Name', key: 'fileName' },
         { header: 'Total Records', key: 'totalRows' },
         { header: 'File Size', key: 'fileSize' },

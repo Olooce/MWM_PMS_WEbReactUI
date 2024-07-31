@@ -21,7 +21,7 @@ const Table = ({ data = [], columns = [], onRowClick = null}) => (
                                 {col.render
                                     ? col.render(item[col.key], item, rowIndex)
                                     : col.accessor
-                                        ? col.accessor(rowIndex)
+                                        ? col.accessor(item,rowIndex)
                                         : item[col.key]}
                             </td>
                         ))}
