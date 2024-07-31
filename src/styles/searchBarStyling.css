@@ -5,13 +5,23 @@
   position: sticky;
 }
 
-.search-bar input {
-  /* padding: 10px; */
+.search-bar .cont {
+  width: 30.7rem;
+  border-radius: 30px;
+  background-color: #c8b8b8;
+  align-items: center;
+  display: relative;
+  align-content: center;
+}
+.cont input {
+  padding: 5px;
   font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 50px;
   background-color: #ece1e1;
+  width: 80%;
+  /* margin: 3.75rem 3.75rem; */
+  align-self: center;
+  box-sizing: border-box;
+  display: fixed;
 }
 
 .search-bar button {
