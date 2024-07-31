@@ -61,10 +61,11 @@ const Dash = ({ children }) => {
                     </button>
                 </div> */}
                 <div className="navbar-left">
-                    <img src="src/assets/logo-no-background.svg" className="logo" />
+                    {/* <img src="src/assets/logo-no-background.svg" className="logo" /> */}
                 </div>
                 <div className="navbar-center">
                     {/* Search bar*/}
+                    <img src="src/assets/logo-no-background.svg" className="logo" ></img>
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button" onClick={toggleDrawer}>

@@ -29,7 +29,7 @@
     font-size: 0.5rem;
 }
 
-.navbar-left .logo {
+.logo {
     height: 2.5rem;
 }
 
@@ -111,7 +111,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 10%;
+    width: 5%;
     background-color: #0c569b;
     transition: width 0.3s ease;
     overflow-x: hidden;
@@ -122,11 +122,14 @@
     box-shadow: 4px 2px 4px  0px  rgba(0, 0, 0, 0.5);
 }
 
-.sidebar.collapsed {
+/* .sidebar.collapsed {
     width: 5%;
     overflow-y: hidden;
-}
+} */
 
+.sidebar :hover{
+    width: 10%;
+}
 .sidebar ul {
     display: flex;
     flex-direction: column;
