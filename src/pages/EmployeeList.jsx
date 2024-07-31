@@ -1,4 +1,3 @@
-// ListEmployees.js
 import React from 'react';
 import Dash from "../layout/Dash";
 import useEmployees from '../hooks/useEmployees';

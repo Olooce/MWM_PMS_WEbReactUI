@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { searchEmployees } from '../api';
-import EmployeeDetails from '../pages/modals/EmployeeDetailsModal';
+import EmployeeDetails from '../components/modals/EmployeeDetailsModal';
 import NotificationDrawer from '../components/NotificationDrawer';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';

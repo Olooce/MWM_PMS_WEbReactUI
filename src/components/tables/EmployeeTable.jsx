@@ -33,7 +33,7 @@
 
 
 import React from 'react';
-import Table from '../../components/Table';
+import Table from '../Table';
 
 const EmployeeTable = ({ employees, page, size, showEmployeeDetails }) => {
     const columns = [
