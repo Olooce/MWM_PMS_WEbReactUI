@@ -21,7 +21,7 @@ export default function ExportsTable({ exports, page, size }) {
             ),
         }
     ];
-
+ 
     const handleDownload = async (item) => {
         const fileId = item.fileId;
         try {
