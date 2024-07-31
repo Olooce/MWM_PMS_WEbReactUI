@@ -28,7 +28,7 @@ const Table = ({ data = [], columns = [], onRowClick = null}) => (
                     </tr>
                 ))}
             </tbody>
-        </table>-
+        </table>
     </div>
 );
 

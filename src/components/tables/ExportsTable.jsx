@@ -8,11 +8,7 @@ export default function ExportsTable({ exports, page, size }) {
     const columns = [
         {
             header: '#', accessor: (item, index) => {
-                console.log("Page: ",page);
-                console.log("Index: ",index);
-                console.log("Size: ", size);
                 const value = (page - 1) * size + index + 1;
-                console.log("Index Value:", value);
                 return value;
             }
         },
