@@ -27,9 +27,9 @@
 
 /* Content area that will scroll */
 .content-area {
-  padding-top: 8.5rem; /* Adjust according to the height of your controls */
+  padding-top: 8.5rem; 
   overflow-y: auto;
-  gap: 20px;
+  /* gap: 20px; */
   flex: 1;
 }
 

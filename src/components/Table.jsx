@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/tableStyling.css'
+
 
 const Table = ({ data = [], columns = [], onRowClick = null}) => (
     <div className="table-wrapper">
