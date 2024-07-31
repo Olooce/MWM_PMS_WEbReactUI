@@ -1,9 +1,39 @@
 /***EmployeeList***/
-.employees-list {
+/* .employees-list {
   display: flex;
   flex-direction: column;
   height: 100%;
+} */
+
+/* Style for the entire list of employees */
+.employees-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem;
 }
+
+/* Styling for the controls at the top */
+.controls {
+  position: fixed; /* or fixed */
+  top: 0;
+  background-color: #fff; /* Or another background color to differentiate it */
+  z-index: 100; /* Ensure it's above other content */
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Content area that will scroll */
+.content-area {
+  padding-top: 3rem; /* Adjust according to the height of your controls */
+  overflow-y: auto;
+  gap: 20px;
+  flex: 1;
+}
+
+
+
 
 .salaries-list {
   display: flex;
@@ -48,14 +78,6 @@ h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  position: sticky;
-}
-
 
 .search-bar {
   display: flex;
