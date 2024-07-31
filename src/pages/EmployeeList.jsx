@@ -1,245 +1,113 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import {
-    getAllEmployees,
-    searchEmployees,
-    addNewEmployee,
-    updateEmployee,
-    deleteEmployee,
-    exportSearch,
-    exportTable
-} from '../api';
+// ListEmployees.js
+import React from 'react';
 import Dash from "../layout/Dash";
+import useEmployees from '../hooks/useEmployees';
 import Pagination from '../components/Pagination';
-import SearchBar from './SearchBar';
-import EmployeeTable from './tables/EmployeeTable';
-import LoadingAnimation from './LoadingAnimation';
-import EmployeeDetailsModal from './modals/EmployeeDetailsModal';
-import AddEmployeeModal from './modals/AddEmployeeModal';
+import SearchBar from '../components/SearchBar';
+import EmployeeTable from '../components/tables/EmployeeTable';
+import LoadingAnimation from '../components/LoadingAnimation';
+import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
+import AddEmployeeModal from '../components/modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
 import '../styles/listStyling.css';
 
-
-
 const ListEmployees = () => {
-    const [employees, setEmployees] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [page, setPage] = useState(1);
-    const [size, setSize] = useState(10);
-    const [inputPage, setInputPage] = useState(1);
-    const [inputSize, setInputSize] = useState(10);
-    const [selectedEmployee, setSelectedEmployee] = useState(null);
-    const [searchTerm, setSearchTerm] = useState();
-    const [isSearching, setIsSearching] = useState(false);
-    const [newEmployee, setNewEmployee] = useState({
-        name: '',
-        departmentId: '',
-        employmentType: '',
-        dob: '',
-        gender: '',
-        status: '',
-        statusDescription: '',
-        employmentDate: '',
-        terminationDate: ''
-    });
-    const [showAllEmployees, setShowAllEmployees] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const {
+    employees,
+    loading,
+    error,
+    page,
+    size,
+    isSearching,
+    searchTerm,
+    selectedEmployee,
+    newEmployee,
+    setPage,
+    setSize,
+    setIsSearching,
+    setSearchTerm,
+    setSelectedEmployee,
+    setNewEmployee,
+    fetchEmployees,
+    handleAddEmployee,
+    handleUpdateEmployee,
+    handleDeleteEmployee,
+    handleExportSearch,
+    handleExportTable,
+  } = useEmployees();
 
-    const fetchEmployees = useCallback(async () => {
-        try {
-            setLoading(true);
-            let response;
-            if (isSearching) {
-                response = await searchEmployees(searchTerm, page, size);
-            } else {
-                response = await getAllEmployees(page, size);
-            }
-            const data = response.data;
-            setEmployees(Array.isArray(data) ? data : []);
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
-    }, [isSearching, searchTerm, page, size]);
+  const handleShowAllEmployees = () => {
+    setIsSearching(false);
+    setSearchTerm('');
+    setPage(1);
+    fetchEmployees();
+  };
 
-    useEffect(() => {
-        fetchEmployees();
-    }, [fetchEmployees]);
-
-    const handleGoToPage = () => {
-        setPage(inputPage);
-        setSize(inputSize);
-    };
-
-    const handleSearch = () => {
-        setIsSearching(true);
-        setPage(1);
-        setShowAllEmployees(false);
-        fetchEmployees();
-    };
-
-    const handleExportSearch = useCallback(async () => {
-        try {
-            console.log("Search export started");
-            setLoading(true);
-            const response = await exportSearch('employees', searchTerm);
-        } catch (error) {
-            console.error("Error exporting search results:", error);
-        } finally {
-            setLoading(false);
-        }
-    }, [searchTerm]);
-
-
-    const handleExportTable = useCallback(async () => {
-        try {
-            console.log("Table export started");
-            setLoading(true);
-            const response = await exportTable('employees');
-        } catch (error) {
-            console.error("Error exporting table:", error);
-        } finally {
-            setLoading(false);
-        }
-    },);
-
-    const handleShowAllEmployees = () => {
-        setIsSearching(false);
-        setSearchTerm('');
-        setPage(1);
-        setShowAllEmployees(true);
-        fetchEmployees();
-    };
-
-    const handleNewEmployeeChange = (e) => {
-        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value });
-    };
-
-    const handleAddEmployee = async () => {
-        try {
-            setLoading(true);
-            await addNewEmployee(newEmployee);
-            setNewEmployee({
-                name: '',
-                departmentId: '',
-                employmentType: '',
-                dob: '',
-                gender: '',
-                status: '',
-                statusDescription: '',
-                employmentDate: '',
-                terminationDate: ''
-            });
-            fetchEmployees();
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-            setIsModalOpen(false);
-        }
-    };
-
-    const handleUpdateEmployee = async (employeeId) => {
-        try {
-            setLoading(true);
-            await updateEmployee(employeeId, selectedEmployee);
-            fetchEmployees();
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handleDeleteEmployee = async (employeeId) => {
-        try {
-            setLoading(true);
-            await deleteEmployee(employeeId);
-            fetchEmployees();
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const showEmployeeDetails = (employee) => {
-        setSelectedEmployee(employee);
-    };
-
-    const closeEmployeeDetails = () => {
-        setSelectedEmployee(null);
-    };
-
-    const renderContent = () => {
-        if (error) return <div>Error: {error}</div>;
-        if (loading) return <LoadingAnimation key="loading" />;
-        if (employees.length === 0 && !loading) return <p>No employees found.</p>;
-
-        return (
-            <>
-                <EmployeeTable
-                    employees={employees}
-                    page={page}
-                    size={size}
-                    showEmployeeDetails={showEmployeeDetails}
-                />
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    inputPage={inputPage}
-                    setInputPage={setInputPage}
-                    inputSize={inputSize}
-                    setInputSize={setInputSize}
-                    handleGoToPage={handleGoToPage}
-                    setLoading={setLoading}
-                />
-            </>
-        );
-    };
-
+  const renderContent = () => {
+    if (error) return <div>Error: {error}</div>;
+    if (loading) return <LoadingAnimation key="loading" />;
+    if (employees.length === 0 && !loading) return <p>No employees found.</p>;
 
     return (
-        <Dash>
-            <div className="employees-list">
-                <h2>Employees</h2>
-                <div className="controls">
-                    <SearchBar
-                        searchTerm={searchTerm}
-                        setSearchTerm={setSearchTerm}
-                        handleSearch={handleSearch}
-                        handleExportSearch={handleExportSearch}
-                        handleExportTable={handleExportTable}
-                        handleAddEmployee={() => setIsModalOpen(true)}
-                    />
-                    <button className="add-employee-button" onClick={handleShowAllEmployees}>Show All</button>
-                </div>
-
-
-                {(isSearching || showAllEmployees) && (
-                    renderContent()
-                )}
-
-                {selectedEmployee && (
-                    <EmployeeDetailsModal
-                        employee={selectedEmployee}
-                        onClose={closeEmployeeDetails}
-                        onSave={handleUpdateEmployee}
-                        onDelete={handleDeleteEmployee}
-                    />
-                )}
-
-                <AddEmployeeModal
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                    onSubmit={handleAddEmployee}
-                    newEmployee={newEmployee}
-                    handleNewEmployeeChange={handleNewEmployeeChange}
-                />
-            </div>
-        </Dash>
+      <>
+        <EmployeeTable
+          employees={employees}
+          page={page}
+          size={size}
+          showEmployeeDetails={setSelectedEmployee}
+        />
+        <Pagination
+          page={page}
+          setPage={setPage}
+          size={size}
+          setSize={setSize}
+          setLoading={() => {}}
+        />
+      </>
     );
+  };
+
+  return (
+    <Dash>
+      <div className="employees-list">
+        <h2>Employees</h2>
+        <div className="controls">
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleSearch={() => setIsSearching(true)}
+            handleExportSearch={handleExportSearch}
+            handleExportTable={handleExportTable}
+            handleAddEmployee={() => setSelectedEmployee(true)}
+          />
+          <button className="add-employee-button" onClick={handleShowAllEmployees}>
+            Show All
+          </button>
+        </div>
+
+        {renderContent()}
+
+        {selectedEmployee && (
+          <EmployeeDetailsModal
+            employee={selectedEmployee}
+            onClose={() => setSelectedEmployee(null)}
+            onSave={handleUpdateEmployee}
+            onDelete={handleDeleteEmployee}
+          />
+        )}
+
+        <AddEmployeeModal
+          isOpen={Boolean(selectedEmployee)}
+          onClose={() => setSelectedEmployee(null)}
+          onSubmit={handleAddEmployee}
+          newEmployee={newEmployee}
+          handleNewEmployeeChange={(e) =>
+            setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
+          }
+        />
+      </div>
+    </Dash>
+  );
 };
 
 export default ListEmployees;
