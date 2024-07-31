@@ -1,28 +1,13 @@
 import React from 'react';
 
-function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, setLoading }) {
-
-    const handleNextPage = () => {
-        setLoading(true);
-        setPage((prev) => prev + 1);
-    };
-
-    const handlePrevPage = () => {
-        setLoading(true);
-        setPage((prev) => (prev > 1 ? prev - 1 : 1));
-    };
-
-    const handleGoToPage = () => {
-        setLoading(true);
-        setPage(inputPage);
-       
-    };
+function Pagination({ pagination }) {
+    const { page, setPage, inputPage, setInputPage, inputSize, setInputSize, goToPage } = pagination;
 
     return (
         <div className="pagination">
-            <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
+            <button onClick={() => setPage(page - 1)} disabled={page === 1}>Previous</button>
             <span className="page-info">Page {page}</span>
-            <button onClick={handleNextPage}>Next</button>
+            <button onClick={() => setPage(page + 1)}>Next</button>
             <div className="page-controls">
                 <input
                     type="number"
@@ -40,7 +25,7 @@ function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInpu
                     className="size-input"
                     min={1}
                 />
-                <button onClick={handleGoToPage} className="go-button">Go</button>
+                <button onClick={() => goToPage(inputPage, inputSize)} className="go-button">Go</button>
             </div>
         </div>
     );
