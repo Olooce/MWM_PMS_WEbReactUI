@@ -1,13 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// col.header
+
 const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 }) => (
     <div className="table-wrapper">
         <table className="fl-table">
             <thead>
                 <tr>
                     {columns.map((col) => (
-                        <th key={col.key || col.header}>{col.header}</th>
+
+                       
+                        <th key={col.key || col.header}>
+                            {
+                             col.header
+
+            
+                              }</th>
                     ))}
                 </tr>
             </thead>

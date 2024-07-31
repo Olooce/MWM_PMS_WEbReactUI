@@ -9,7 +9,6 @@ const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
     { header: 'NetSalary', key: 'netSalary' }
   ];
 
-  console.log(columns[0].accessor)
   return (
     <Table
       columns={columns}
