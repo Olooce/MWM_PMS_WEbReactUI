@@ -131,12 +131,14 @@
     align-items: center;
     margin-bottom: 0.725rem;
     padding: 1rem;
+    border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .sidebar ul li:hover {
     transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .sidebar ul li a {

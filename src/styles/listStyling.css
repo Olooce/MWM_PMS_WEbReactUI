@@ -16,7 +16,7 @@
 
 /* Styling for the controls at the top */
 .controls {
-  width: 95%;
+  /* width: 95%; */
   position: fixed;
   justify-self: center;
   top: 3.75rem;
