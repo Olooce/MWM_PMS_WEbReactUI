@@ -25,12 +25,15 @@ const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 
                     <tr key={item.id} onClick={() => onRowClick && onRowClick(item)}>
                         {columns.map((col, colIndex) => (
                             <td key={col.key || col.header}>
-                                {col.render
+                                {
+                              
+                                col.render
                                     ? col.render(item[col.key], item, rowIndex)
                                     : col.accessor
                                         ? col.accessor(item, rowIndex)
                                         : item[col.key]}
                             </td>
+                            
                         ))}
                     </tr>
                 ))}
