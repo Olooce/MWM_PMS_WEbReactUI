@@ -105,11 +105,11 @@
 
 /* Sidebar styling */
 .sidebar {
-    width: 15%;
+    width: 10%;
     background-color: #0c569b;
     padding: 1rem;
     transition: width 0.3s ease;
-    overflow-y: auto;
+    overflow-x: hidden;
     position: sticky;
     top: 3.75rem;
     /* Below the navbar */
@@ -117,8 +117,8 @@
 }
 
 .sidebar.collapsed {
-    width: 60px;
-    /* Set a smaller width when collapsed */
+    width: 5%;
+    overflow-y: hidden;  
 }
 
 .sidebar ul {
@@ -133,7 +133,7 @@
 .sidebar ul li {
     display: flex;
     align-items: center;
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.725rem;
 }
 
 .sidebar ul li a {
