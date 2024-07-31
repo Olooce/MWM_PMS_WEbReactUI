@@ -123,6 +123,7 @@ const useEmployees = () => {
     setSize,
     setIsSearching,
     setSearchTerm,
+    setLoading,
     setSelectedEmployee,
     setNewEmployee,
     fetchEmployees,

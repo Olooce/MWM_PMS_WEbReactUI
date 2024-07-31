@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, handleGoToPage, setLoading }) {
+function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, setLoading }) {
 
     const HandleNextPage = ({ page, setPage, setLoading }) => {
         const nextPage = () => {
@@ -15,6 +15,11 @@ function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInpu
             setPage((prev) => (prev > 0 ? prev - 1 : 0));
         };
         return <button onClick={prevPage} disabled={page === 1}>Previous</button>;
+    };
+
+    const handleGoToPage = () => {
+        setPage(inputPage);
+        setSize(inputSize);
     };
 
     return (

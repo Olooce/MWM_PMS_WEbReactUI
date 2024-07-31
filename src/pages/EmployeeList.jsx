@@ -23,6 +23,7 @@ const ListEmployees = () => {
         newEmployee,
         setPage,
         setSize,
+        setLoading,
         setIsSearching,
         setSearchTerm,
         setSelectedEmployee,
@@ -65,7 +66,7 @@ const ListEmployees = () => {
                     size={size}
                     setSize={setSize}
                     setLoading={setLoading}
-                    handleGoToPage={() => { }}
+                    // handleGoToPage={handleGoToPage}
                 />
             </>
         );
@@ -88,8 +89,6 @@ const ListEmployees = () => {
                         Show All
                     </button>
                 </div>
-
-                {/* {renderContent()} */}
 
                 {(isSearching || showAllEmployees) && (
                     renderContent()
