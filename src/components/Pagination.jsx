@@ -1,9 +1,5 @@
 import React from 'react';
 
-
-
-
-
 function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInputSize, handleGoToPage, setLoading }) {
 
     const HandleNextPage = ({ page, setPage, setLoading }) => {
@@ -33,6 +29,7 @@ function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInpu
                     onChange={(e) => setInputPage(Number(e.target.value))}
                     placeholder="Page number"
                     className="page-input"
+                    min={1}
                 />
                 <input
                     type="number"
@@ -40,6 +37,7 @@ function Pagination({ page, setPage, inputPage, setInputPage, inputSize, setInpu
                     onChange={(e) => setInputSize(Number(e.target.value))}
                     placeholder="Page size"
                     className="size-input"
+                    min={1}
                 />
                 <button onClick={handleGoToPage} className="go-button">Go</button>
             </div>

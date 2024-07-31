@@ -10,8 +10,6 @@ import AddEmployeeModal from '../components/modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
 import '../styles/listStyling.css';
 
-const [showAllEmployees,setShowAllEmployees] = useState(false);
-
 const ListEmployees = () => {
     const {
         employees,
@@ -36,6 +34,8 @@ const ListEmployees = () => {
         handleExportSearch,
         handleExportTable,
     } = useEmployees();
+
+    const [showAllEmployees, setShowAllEmployees] = useState(false);
 
     const handleShowAllEmployees = () => {
         setIsSearching(false);
@@ -64,7 +64,8 @@ const ListEmployees = () => {
                     setPage={setPage}
                     size={size}
                     setSize={setSize}
-                    setLoading={() => { }}
+                    setLoading={setLoading}
+                    handleGoToPage={() => { }}
                 />
             </>
         );
