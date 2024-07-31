@@ -16,7 +16,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 90;
+    z-index: 100;
     margin-left: auto;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 }
@@ -107,11 +107,9 @@
     transition: width 0.3s ease;
     overflow-x: hidden;
     position: sticky;
-    /* top: 3.75rem;
-    height: calc(100vh - 3.75rem); */
-    height: 100%;
+    top: 3.75rem;
+    height: calc(100vh - 3.75rem);
     box-shadow: 4px 2px 4px 0px rgba(0, 0, 0, 0.5);
-    z-index: 100;
 }
 
 .sidebar:hover {
