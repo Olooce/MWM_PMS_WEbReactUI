@@ -1,12 +1,11 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getAllEmployees, searchEmployees, addNewEmployee, updateEmployee, deleteEmployee, exportSearch, exportTable } from '../api';
+import usePagination from './usePagination'; // Import the usePagination hook
 
 const useEmployees = () => {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [page, setPage] = useState(1);
-  const [size, setSize] = useState(10);
   const [isSearching, setIsSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
@@ -22,19 +21,22 @@ const useEmployees = () => {
     terminationDate: ''
   });
 
+  // Use the custom pagination hook
+  const pagination = usePagination();
+
   const fetchEmployees = useCallback(async () => {
     setLoading(true);
     try {
       const response = isSearching 
-        ? await searchEmployees(searchTerm, page, size)
-        : await getAllEmployees(page, size);
+        ? await searchEmployees(searchTerm, pagination.page, pagination.size)
+        : await getAllEmployees(pagination.page, pagination.size);
       setEmployees(response.data || []);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [isSearching, searchTerm, page, size]);
+  }, [isSearching, searchTerm, pagination.page, pagination.size]);
 
   useEffect(() => {
     fetchEmployees();
@@ -113,14 +115,11 @@ const useEmployees = () => {
     employees,
     loading,
     error,
-    page,
-    size,
+    pagination, // Provide pagination object
     isSearching,
     searchTerm,
     selectedEmployee,
     newEmployee,
-    setPage,
-    setSize,
     setIsSearching,
     setSearchTerm,
     setLoading,
