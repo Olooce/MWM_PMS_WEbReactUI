@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ListSalaries from './pages/ListSalaries';
 import Listemployees from './pages/EmployeeList';
-import EmployeeDetailsModal from './pages/modals/EmployeeDetailsModal';
+import EmployeeDetailsModal from './components/modals/EmployeeDetailsModal';
 import Homepage from './pages/Homepage';
 import Loginpage from './pages/Loginpage';
 import { Dashboard } from './pages/Dashboard';

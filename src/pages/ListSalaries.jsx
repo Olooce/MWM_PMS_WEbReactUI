@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getAllSalaries } from '../api';
 import Dash from "../layout/Dash";
-import LoadingAnimation from './LoadingAnimation';
-import SalariesTable from './tables/SalariesTable';
+import LoadingAnimation from '../components/LoadingAnimation';
+import SalariesTable from '../components/tables/SalariesTable';
 import Pagination from '../components/Pagination';
 
 const ListSalaries = () => {

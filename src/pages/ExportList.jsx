@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { getExports } from '../api';
 import Dash from "../layout/Dash";
-import LoadingAnimation from './LoadingAnimation';
-import ExportsTable from './tables/ExportsTable';
+import LoadingAnimation from '../components/LoadingAnimation';
+import ExportsTable from '../components/tables/ExportsTable';
 import Pagination from '../components/Pagination';
 
 export default function ExportList() {
