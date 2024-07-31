@@ -5,7 +5,6 @@ import { downloadExport } from '../../api';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 export default function ExportsTable({ exports, page, size }) {
-    c
     const columns = [
         { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
         { header: 'File Name', key: 'fileName' },
@@ -22,18 +21,18 @@ export default function ExportsTable({ exports, page, size }) {
             ),
         }
     ];
- 
+
     const handleDownload = async (item) => {
         const fileId = item.fileId;
         try {
             const response = await downloadExport(fileId);
-    
+
             if (response.status === 200) {
                 const blob = new Blob([response.data], { type: response.headers['content-type'] });
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.setAttribute('download', `${fileId}.xlsx`); 
+                link.setAttribute('download', `${fileId}.xlsx`);
                 document.body.appendChild(link);
                 link.click();
                 link.remove();
