@@ -9,7 +9,7 @@
 .employees-list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 1.25rem;
 }
 
@@ -27,7 +27,7 @@
 
 /* Content area that will scroll */
 .content-area {
-  padding-top: 3rem; /* Adjust according to the height of your controls */
+  padding-top: 8.5rem; /* Adjust according to the height of your controls */
   overflow-y: auto;
   gap: 20px;
   flex: 1;
