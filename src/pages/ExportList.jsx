@@ -35,7 +35,7 @@ export default function ExportList() {
         if (loading) return <LoadingAnimation />;
         if (exports.length === 0) return <p>No exports found.</p>;
 
-        return <ExportsTable exports={exports} />;
+        return <ExportsTable exports={exports} page={pagination.page} size={pagination.size} />;
     };
 
     return (
