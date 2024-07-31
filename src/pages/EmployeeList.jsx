@@ -15,15 +15,11 @@ const ListEmployees = () => {
         employees,
         loading,
         error,
-        page,
-        size,
+        pagination,
         isSearching,
         searchTerm,
         selectedEmployee,
         newEmployee,
-        setPage,
-        setSize,
-        setLoading,
         setIsSearching,
         setSearchTerm,
         setSelectedEmployee,
@@ -42,7 +38,7 @@ const ListEmployees = () => {
         setIsSearching(false);
         setShowAllEmployees(true);
         setSearchTerm('');
-        setPage(1);
+        pagination.setPage(1);
         fetchEmployees();
     };
 
@@ -51,23 +47,15 @@ const ListEmployees = () => {
         if (loading) return <LoadingAnimation key="loading" />;
         if (employees.length === 0 && !loading) return <p>No employees found.</p>;
 
-
         return (
             <>
                 <EmployeeTable
                     employees={employees}
-                    page={page}
-                    size={size}
+                    page={pagination.page}
+                    size={pagination.size}
                     showEmployeeDetails={setSelectedEmployee}
                 />
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    size={size}
-                    setSize={setSize}
-                    setLoading={setLoading}
-                    // handleGoToPage={handleGoToPage}
-                />
+                <Pagination pagination={pagination} />
             </>
         );
     };
