@@ -52,8 +52,6 @@ const Dash = ({ children }) => {
     const closeEmployeeDetails = () => setSelectedEmployee(null);
     const clientId = '1';
 
-
-
     return (
         <div className="dashboard-layout">
             <nav className="navbar">
