@@ -70,10 +70,10 @@ const Dash = ({ children }) => {
                 </div>
                 <div className="navbar-right">
                     <button className="icon-button" onClick={toggleDrawer}>
-                       <NotificationsIcon/>
+                        <NotificationsIcon />
                     </button>
-                    <button className="icon-button"><SettingsIcon/></button>
-                    <button className="icon-button"><AccountCircleIcon/></button>
+                    <button className="icon-button"><SettingsIcon /></button>
+                    <button className="icon-button"><AccountCircleIcon /></button>
                     <div className="user-profile">
                         {/* <img src="../assets/avatar.png" alt="User Avatar" className="avatar" /> */}
                     </div>

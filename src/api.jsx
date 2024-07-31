@@ -21,7 +21,7 @@ export const validateCredentials = (username, password) => {
 };
 
 // Employee Management
-export const getAllEmployees = (page = 0, size = 10) => 
+export const getAllEmployees = (page = 0, size = 10) =>
   api.get(`/employees?page=${page}&size=${size}`);
 
 export const getAllNewEmployees = (page = 0, size = 10, startDate, endDate) => {
@@ -31,10 +31,10 @@ export const getAllNewEmployees = (page = 0, size = 10, startDate, endDate) => {
   return api.get(url);
 };
 
-export const countActiveEmployees = (departmentId = 1) => 
+export const countActiveEmployees = (departmentId = 1) =>
   api.get(`/employees/count-active/${departmentId}`);
 
-export const searchEmployees = (searchTerm, page = 1, size = 10) => 
+export const searchEmployees = (searchTerm, page = 1, size = 10) =>
   api.post(`/employees/search?searchTerm=${searchTerm}&page=${page}&size=${size}`);
 
 export const addNewEmployee = async (employee) => {
@@ -42,67 +42,67 @@ export const addNewEmployee = async (employee) => {
   return response;
 };
 
-export const getEmployeeById = (employeeId) => 
+export const getEmployeeById = (employeeId) =>
   api.get(`/employees/${employeeId}`);
 
-export const updateEmployee = (employeeId, employeeDto) => 
+export const updateEmployee = (employeeId, employeeDto) =>
   api.put(`/employees/${employeeId}`, employeeDto);
 
-export const deleteEmployee = (employeeId) => 
+export const deleteEmployee = (employeeId) =>
   api.delete(`/employees/${employeeId}`);
 
 // Other Managements
-export const getAllTaxes = (page = 1, size = 10) => 
+export const getAllTaxes = (page = 1, size = 10) =>
   api.get(`/taxes?page=${page}&size=${size}`);
 
-export const getAllAllowances = (page = 1, size = 10) => 
+export const getAllAllowances = (page = 1, size = 10) =>
   api.get(`/allowances?page=${page}&size=${size}`);
 
-export const getAllBankDetails = (page = 1, size = 10) => 
+export const getAllBankDetails = (page = 1, size = 10) =>
   api.get(`/bankdetails?page=${page}&size=${size}`);
 
-export const getAllBranches = (page = 1, size = 10) => 
+export const getAllBranches = (page = 1, size = 10) =>
   api.get(`/branches?page=${page}&size=${size}`);
 
-export const getAllContactInfo = (page = 1, size = 10) => 
+export const getAllContactInfo = (page = 1, size = 10) =>
   api.get(`/contactinfo?page=${page}&size=${size}`);
 
-export const getAllDeductions = (page = 1, size = 10) => 
+export const getAllDeductions = (page = 1, size = 10) =>
   api.get(`/deductions?page=${page}&size=${size}`);
 
-export const getAllDepartments = (page = 1, size = 10) => 
+export const getAllDepartments = (page = 1, size = 10) =>
   api.get(`/departments?page=${page}&size=${size}`);
 
-export const getAllSalaries = (page = 1, size = 10) => 
+export const getAllSalaries = (page = 1, size = 10) =>
   api.get(`/salaries?page=${page}&size=${size}`);
 
-export const getEarningsAndDeductionsEmp = (employeeId = 1) => 
+export const getEarningsAndDeductionsEmp = (employeeId = 1) =>
   api.get(`/salaries/earnings-deductions?employeeId=${employeeId}`);
 
-export const getAllowancesSalariesDept = (departmentId = 1) => 
+export const getAllowancesSalariesDept = (departmentId = 1) =>
   api.get(`/salaries/allowances-net-salaries?departmentId=${departmentId}`);
 
-export const getTotalSalary = () => 
+export const getTotalSalary = () =>
   api.get(`/salaries/total-net-salary`);
 
-export const getPaymentHistory = (employeeId) => 
+export const getPaymentHistory = (employeeId) =>
   api.get(`/salaries/payment-history/?employeeId=${employeeId}`);
 
 // System Users
-export const getAllUsers = (page = 1, size = 10) => 
+export const getAllUsers = (page = 1, size = 10) =>
   api.get(`/systemusers?page=${page}&size=${size}`);
 
 // Export and Download
-export const exportTable = (tableName) => 
+export const exportTable = (tableName) =>
   api.post(`/api/export/${tableName}`);
 
-export const exportSearch = (tableName, searchTerm) => 
+export const exportSearch = (tableName, searchTerm) =>
   api.post(`/api/exportSearch/${tableName}`, null, { params: { searchTerm } });
 
-export const downloadExport = (fileId) => 
+export const downloadExport = (fileId) =>
   api.get(`/api/download/${fileId}`, {
-    responseType: 'blob' 
+    responseType: 'blob'
   });
 
-export const getExports = (page = 1, size = 10) => 
+export const getExports = (page = 1, size = 10) =>
   api.get(`api/listExports?page=${page}&size=${size}`);

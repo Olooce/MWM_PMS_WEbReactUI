@@ -36,7 +36,8 @@
     width: 100%;
     max-width: 18.75rem;
     padding: 0.5rem;
-    border: 1px solid #005bb5; /* Border color matching the table */
+    border: 1px solid #005bb5;
+    /* Border color matching the table */
 }
 
 .navbar-right {
@@ -46,19 +47,19 @@
 
 .icon-button {
     background-color: none;
-    border: none; 
+    border: none;
     border-radius: 50%;
-    color: #fff; 
+    color: #fff;
     cursor: pointer;
-    font-size: 2.5rem; 
-    height: 2rem; 
-    width: 2rem; 
+    font-size: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     padding: 1rem;
-    margin: 0 0.5rem; 
+    margin: 0 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
 .icon-button i {
     margin-right: 0.5rem;
@@ -97,24 +98,27 @@
 .main-content-wrapper {
     display: flex;
     flex: 1;
-    padding-top: 3.75rem; /* Height of the navbar */
+    padding-top: 3.75rem;
+    /* Height of the navbar */
 }
 
 
 /* Sidebar styling */
 .sidebar {
     width: 15%;
-    background-color: #0c569b; 
+    background-color: #0c569b;
     padding: 1rem;
     transition: width 0.3s ease;
     overflow-y: auto;
     position: sticky;
-    top: 3.75rem; /* Below the navbar */
+    top: 3.75rem;
+    /* Below the navbar */
     height: calc(100vh - 3.75rem);
 }
 
 .sidebar.collapsed {
-    width: 60px; /* Set a smaller width when collapsed */
+    width: 60px;
+    /* Set a smaller width when collapsed */
 }
 
 .sidebar ul {
@@ -147,7 +151,7 @@
 .sidebar ul li a .icon-hr,
 .sidebar ul li a .icon-company {
     margin-right: 0.625rem;
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
 }
 
 .sidebar ul li a span {
@@ -165,7 +169,8 @@
 .content-area {
     flex: 1;
     padding: 1.25rem;
-    background-color: #ffffff; /* White background matching the table */
+    background-color: #ffffff;
+    /* White background matching the table */
     overflow-y: auto;
 }
 
@@ -209,7 +214,8 @@
     border-collapse: collapse;
 }
 
-.search-results th, .search-results td {
+.search-results th,
+.search-results td {
     border: 1px solid #ddd;
     padding: 8px;
 }
@@ -221,4 +227,3 @@
     background-color: #f2f2f2;
     color: black;
 }
- 

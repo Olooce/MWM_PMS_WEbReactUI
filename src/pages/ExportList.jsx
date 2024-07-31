@@ -5,7 +5,7 @@ import LoadingAnimation from './LoadingAnimation';
 import ExportsTable from './tables/ExportsTable';
 import Pagination from '../components/Pagination';
 
-export default function ExportList (){
+export default function ExportList() {
     const [exports, setExports] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ export default function ExportList (){
             setLoading(false);
         }
     }, [page, size]);
-    
+
 
     useEffect(() => {
         fetchExports();
@@ -53,22 +53,22 @@ export default function ExportList (){
 
     return (
         <>
-        <Dash>
-            <div className="export-list">
-                <h2>Exports</h2>
-                {renderContent()}
-                <Pagination
-                    page={page}
-                    setPage={setPage}
-                    inputPage={inputPage}
-                    setInputPage={setInputPage}
-                    inputSize={inputSize}
-                    setInputSize={setInputSize}
-                    handleGoToPage={handleGoToPage}
-                    setLoading={setLoading}
-                />
-            </div>
-        </Dash>
+            <Dash>
+                <div className="export-list">
+                    <h2>Exports</h2>
+                    {renderContent()}
+                    <Pagination
+                        page={page}
+                        setPage={setPage}
+                        inputPage={inputPage}
+                        setInputPage={setInputPage}
+                        inputSize={inputSize}
+                        setInputSize={setInputSize}
+                        handleGoToPage={handleGoToPage}
+                        setLoading={setLoading}
+                    />
+                </div>
+            </Dash>
         </>
     );
 };

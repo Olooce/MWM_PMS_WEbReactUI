@@ -61,7 +61,7 @@ const ListSalaries = () => {
           handleGoToPage={handleGoToPage}
           setLoading={setLoading}
         />
-      </div> 
+      </div>
     </Dash>
   );
 };
