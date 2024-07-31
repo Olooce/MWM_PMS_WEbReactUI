@@ -58,7 +58,7 @@ const ListSalaries = () => {
           setInputPage={setInputPage}
           inputSize={inputSize}
           setInputSize={setInputSize}
-          handleGoToPage={handleGoToPage}
+          // handleGoToPage={handleGoToPage}
           setLoading={setLoading}
         />
       </div>
