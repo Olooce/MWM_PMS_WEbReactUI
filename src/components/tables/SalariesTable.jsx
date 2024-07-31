@@ -1,9 +1,9 @@
 import React from 'react';
 import Table from '../../components/Table';
 
-const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
+const SalariesTable = ({ salaries, page, size}) => {
   const columns = [
-    { header: '#', accessor: (row, index) => (page - 1) * size + index + 1 },
+    { header: '#', accessor: (index) => (page - 1) * size + index + 1 },
     { header: 'EmployeeID', key: 'employeeId' },
     { header: 'Date', key: 'month' },
     { header: 'NetSalary', key: 'netSalary' }
@@ -13,8 +13,6 @@ const SalariesTable = ({ salaries, page, size, showSalaryDetails }) => {
     <Table
       columns={columns}
       data={salaries}
-      page={page}
-      size={size}
       onRowClick={() => {}}
     />
   );

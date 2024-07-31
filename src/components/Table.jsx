@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 }) => (
+const Table = ({ data = [], columns = [], onRowClick = null}) => (
     <div className="table-wrapper">
         <table className="fl-table">
             <thead>
@@ -16,12 +16,12 @@ const Table = ({ data = [], columns = [], onRowClick = null, page = 1, size = 1 
             <tbody>
                 {data.map((item, rowIndex) => (
                     <tr key={item.id} onClick={() => onRowClick && onRowClick(item)}>
-                        {columns.map((col, colIndex) => (
+                        {columns.map((col) => (
                             <td key={col.key || col.header}>
                                 {col.render
                                     ? col.render(item[col.key], item, rowIndex)
                                     : col.accessor
-                                        ? col.accessor(item, rowIndex)
+                                        ? col.accessor(rowIndex)
                                         : item[col.key]}
                             </td>
                         ))}
