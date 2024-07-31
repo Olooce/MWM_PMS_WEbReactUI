@@ -16,17 +16,9 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.collapse-btn {
-    background-color: #005bb5;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 0.5rem;
+    z-index: 90;
+    margin-left: auto;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .logo {
@@ -110,26 +102,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    width: 5%;
+    width: 5%; /* Initially collapsed */
     background-color: #0c569b;
     transition: width 0.3s ease;
     overflow-x: hidden;
     position: sticky;
-    top: 3.75rem;
-    /* Below the navbar */
-    height: calc(100vh - 3.75rem);
-    box-shadow: 4px 2px 4px  0px  rgba(0, 0, 0, 0.5);
+    /* top: 3.75rem;
+    height: calc(100vh - 3.75rem); */
+    height: 100%;
+    box-shadow: 4px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
-/* .sidebar.collapsed {
-    width: 5%;
-    overflow-y: hidden;
-} */
-
-.sidebar :hover{
-    width: 10%;
+.sidebar:hover {
+    width: 15%; /* Expanded width on hover */
+    overflow-y: hidden; /* Hide vertical scrollbar */
 }
+
 .sidebar ul {
     display: flex;
     flex-direction: column;
@@ -145,9 +134,10 @@
     margin-bottom: 0.725rem;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.sidebar ul li :hover {
+.sidebar ul li:hover {
     transform: scale(1.05);
 }
 
@@ -174,7 +164,7 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.sidebar.collapsed ul li a span {
+.sidebar:not(:hover) ul li a span {
     opacity: 0;
     transform: translateX(-10px);
     pointer-events: none;

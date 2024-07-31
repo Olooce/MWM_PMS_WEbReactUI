@@ -7,8 +7,6 @@ import NotificationDrawer from '../components/NotificationDrawer';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/layoutStyling.css';
 
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -19,14 +17,12 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import BusinessIcon from '@mui/icons-material/Business';
 
 const Dash = ({ children }) => {
-    const [isCollapsed, setIsCollapsed] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const toggleCollapse = () => setIsCollapsed(!isCollapsed);
     const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
     const handleSearchInputChange = (e) => setSearchTerm(e.target.value);
@@ -55,11 +51,6 @@ const Dash = ({ children }) => {
     return (
         <div className="dashboard-layout">
             <nav className="navbar">
-                {/* <div>
-                    <button className="icon-button" onClick={toggleCollapse}>
-                        {isCollapsed ? <MenuIcon /> : <MenuOpenIcon />}
-                    </button>
-                </div> */}
                 <div className="navbar-left">
                     {/* <img src="src/assets/logo-no-background.svg" className="logo" /> */}
                 </div>
@@ -80,7 +71,7 @@ const Dash = ({ children }) => {
             </nav>
 
             <div className="main-content-wrapper">
-                <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+                <nav className="sidebar">
                     <ul>
                         <li><Link to="/dashboard"><DashboardIcon /><span>Dashboard</span></Link></li>
                         <li><Link to="/employees"><PeopleIcon /><span>Employees</span></Link></li>
