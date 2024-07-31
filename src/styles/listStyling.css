@@ -7,6 +7,7 @@
 
 /* Style for the entire list of employees */
 .employees-list {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,22 +16,26 @@
 
 /* Styling for the controls at the top */
 .controls {
+  width: 100%;
   position: fixed;
   justify-self: center;
   top: 3.75rem;
   background-color: #fff; /* Or another background color to differentiate it */
   z-index: 100; /* Ensure it's above other content */
-  padding: 1rem;
+  /* padding: 1rem; */
+  margin: 10px 70px 70px;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 }
 
 /* Content area that will scroll */
 .content-area {
   padding-top: 8.5rem; 
   overflow-y: auto;
-  /* gap: 20px; */
+  gap: 20px;
   flex: 1;
+  width: 100%;
 }
 
 
