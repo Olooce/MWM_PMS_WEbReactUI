@@ -16,14 +16,13 @@
 
 /* Styling for the controls at the top */
 .controls {
-  /* width: 100%; */
+  width: 95%;
   position: fixed;
   justify-self: center;
   top: 3.75rem;
   background-color: #fff; 
-  z-index: 100; 
-  /* padding: 1rem; */
-  /* margin: 10px 70px 70px; */
+  z-index: 90; 
+  padding: 1rem;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
@@ -80,34 +79,9 @@
 }
 
 /*Employee Page Controlls */
-/* h2 {
+h2 {
   font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.search-bar {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.search-bar input {
-  padding: 10px;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-bottom: 5%;
 }
 
 .new-employee-form {
@@ -148,4 +122,4 @@
 
 button:hover {
   opacity: 0.9;
-} */
+}
