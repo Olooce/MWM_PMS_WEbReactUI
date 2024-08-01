@@ -38,9 +38,13 @@
 
 
 .salaries-list {
+  /* display: flex;
+  flex-direction: column;
+  height: 100%; */
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  /* padding: 1.25rem; */
 }
 
 .export-list {

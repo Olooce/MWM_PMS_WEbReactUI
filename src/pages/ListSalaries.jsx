@@ -6,6 +6,7 @@ import SalariesTable from '../components/tables/SalariesTable';
 import usePagination from '../hooks/usePagination';
 import Pagination from '../components/Pagination';
 import '../styles/listStyling.css'
+import '../styles/pageStyling.css'
 
 const ListSalaries = () => {
   const pagination = usePagination();
@@ -38,9 +39,16 @@ const ListSalaries = () => {
   return (
     <Dash>
       <div className="salaries-list">
+        <div className='controls'>
         <h2>Salaries</h2>
-        {renderContent()}
-        <Pagination pagination={pagination} />
+        </div>
+        <div className='content-area'>
+          {renderContent()}
+          <div className='pagination'>
+          <Pagination pagination={pagination}
+           />
+           </div>
+        </div>
       </div>
     </Dash>
   );
