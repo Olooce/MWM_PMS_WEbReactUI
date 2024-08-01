@@ -4,12 +4,11 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* Keep it relative to place within the content-area */
-  z-index: 100; /* Ensure it's above other elements but below controls */
+  z-index: 100;
 }
 
 /* Page Info */
@@ -28,8 +27,8 @@
 /* Input Styles */
 .page-input,
 .size-input {
-  width: 80px;
-  padding: 5px;
+  /* width: 80px;
+  padding: 5px; */
   border: 1px solid #ced4da;
   border-radius: 4px;
 }

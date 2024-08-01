@@ -37,13 +37,13 @@
 /* Content Area */
 .content-area {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-    width: 100%;
-    overflow-y: auto;
-    padding-bottom: 60px; /* Space for pagination */
-}
+    flex-direction: column; 
+    gap: 20px; 
+    flex: 1; 
+    width: 100%;  
+    overflow-y: auto; 
+    padding-bottom: 3.75rem; /* Padding for pagination */ 
+  }
 
 /* Pagination */
 .pagination {
