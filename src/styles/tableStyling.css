@@ -1,26 +1,27 @@
+/* Table Wrapper */
 .table-wrapper {
-  margin: 10px 70px 70px;
-  /* box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2); */
+  margin: 10px 0; /* Remove left and right margins */
+  padding: 0; /* Remove any padding */
   overflow-y: auto;
   max-height: 100vh;
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
+/* Table Styles */
 .fl-table {
   border-radius: 5px;
   font-size: 12px;
   font-weight: normal;
   border: none;
   border-collapse: collapse;
-  width: 100%;
-  max-width: 100%;
-  white-space: nowrap;
+  width: 100%; /* Ensure it takes the full width of its container */
   background-color: white;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+              inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+  margin: 0; /* Remove any default margin */
 }
 
-
+/* Table Header */
 .fl-table-header {
   position: sticky;
   top: 0;
@@ -28,17 +29,20 @@
   z-index: 1;
 }
 
+/* Table Cells */
 .fl-table td,
 .fl-table th {
   text-align: center;
   padding: 8px;
 }
 
+/* Table Data Cells */
 .fl-table td {
   border-right: 1px solid #f8f8f8;
   font-size: 12px;
 }
 
+/* Table Header Cells */
 .fl-table thead th {
   color: #ffffff;
   background: #4FC3A1;
@@ -49,11 +53,14 @@
   background: #3b5875;
 }
 
+/* Table Rows */
 .fl-table tr:nth-child(even) {
   background: #c1d8eb;
 }
 
-.fl-table td:hover {
-  background: #3b6085;
-  color: white;
+/* Table Cell Hover Effect */
+.fl-table tr:hover {
+  transform: scale(1.05); 
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; 
+  /* background: #f0f0f0;  */
 }
