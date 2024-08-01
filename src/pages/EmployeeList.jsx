@@ -20,6 +20,8 @@ const ListEmployees = () => {
         searchTerm,
         selectedEmployee,
         newEmployee,
+        isModalOpen,
+        setIsModalOpen,
         setIsSearching,
         setSearchTerm,
         setSelectedEmployee,
@@ -33,8 +35,7 @@ const ListEmployees = () => {
     } = useEmployees();
 
     const [showAllEmployees, setShowAllEmployees] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
     const handleShowAllEmployees = () => {
         setIsSearching(false);
         setShowAllEmployees(true);
@@ -81,7 +82,7 @@ const ListEmployees = () => {
                     <button onClick={() => setIsSearching(true)}>Search</button>
                     {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
                     <button onClick={handleExportTable}>Export Table</button>
-                    <button onClick={setIsModalOpen(true)}>Add Employee</button>
+                    <button onClick={() => setIsModalOpen(true)}>Add Employee</button>
                 </div>
 
                 {/* <div className="content-area"> */}
@@ -110,7 +111,7 @@ const ListEmployees = () => {
                 )}
                 <AddEmployeeModal
                     isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
+                    onClose={setIsModalOpen}
                     onSubmit={handleAddEmployee}
                     newEmployee={newEmployee}
                     handleNewEmployeeChange={handleNewEmployeeChange}

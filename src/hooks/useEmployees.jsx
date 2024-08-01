@@ -134,6 +134,8 @@ const useEmployees = () => {
     searchTerm,
     selectedEmployee,
     newEmployee,
+    isModalOpen,
+    setIsModalOpen,
     setIsSearching,
     setSearchTerm,
     setLoading,
