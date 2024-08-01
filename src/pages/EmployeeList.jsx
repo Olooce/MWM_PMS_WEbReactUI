@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Dash from "../layout/Dash";
 import useEmployees from '../hooks/useEmployees';
 import Pagination from '../components/Pagination';
@@ -94,9 +95,9 @@ const ListEmployees = () => {
                                 exit={{ opacity: 0 }}
                                 className="employee-details-container"
                             >
-                                <EmployeeDetails
+                                <EmployeeDetailsModal
                                     employee={selectedEmployee}
-                                    onClose={closeEmployeeDetails}
+                                    onClose={() => setSelectedEmployee(null)}
                                     onSave={handleUpdateEmployee}
                                     onDelete={handleDeleteEmployee}
                                 />
@@ -104,7 +105,7 @@ const ListEmployees = () => {
                         </AnimatePresence>
                     </div>
                 )}
-                <AddEmployee
+                <AddEmployeeModal
                     isOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                     onSubmit={handleAddEmployee}
