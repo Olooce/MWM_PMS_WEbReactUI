@@ -3,6 +3,7 @@
   margin: 10px 0; /* Remove left and right margins */
   padding: 0; /* Remove any padding */
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 100vh;
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
@@ -58,9 +59,14 @@
   background: #c1d8eb;
 }
 
+.fl-table tbody {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 /* Table Cell Hover Effect */
-.fl-table tr:hover {
+.fl-table tbody tr:hover {
+  width: 90%;
+  border-radius: 50px;
   transform: scale(1.05); 
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; 
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px -10px 20px; 
   /* background: #f0f0f0;  */
 }
