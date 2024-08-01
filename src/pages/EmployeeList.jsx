@@ -111,7 +111,7 @@ const ListEmployees = () => {
                 )}
                 <AddEmployeeModal
                     isOpen={isModalOpen}
-                    onClose={setIsModalOpen}
+                    onClose={() => setIsModalOpen(false)}
                     onSubmit={handleAddEmployee}
                     newEmployee={newEmployee}
                     handleNewEmployeeChange={handleNewEmployeeChange}
