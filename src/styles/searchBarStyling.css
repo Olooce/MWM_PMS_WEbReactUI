@@ -4,30 +4,30 @@
   margin-bottom: 20px;
   position: relative;
 }
+
 .search-bar .cont {
   width: 30.7rem;
   border-radius: 30px;
   background-color: #f7f5f5;
-  display: flex; /* Use Flexbox layout */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  padding: 1rem; /* Optional: Add padding for spacing */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 1rem; 
 }
 
-.search-bar :hover{
+.search-bar .cont:hover {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .cont input {
   padding: 5px;
   font-size: 16px;
-  background-color: #c8b8b8; 
+  background-color: #c8b8b8;
   width: 95%;
   box-sizing: border-box;
-  border: none; 
+  border: none;
   border-radius: 20px;
 }
-
 
 .search-bar button {
   padding: 10px 20px;

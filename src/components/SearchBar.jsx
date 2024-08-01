@@ -4,12 +4,7 @@ import '../styles/searchBarStyling.css';
 const SearchBar = ({
     searchTerm,
     setSearchTerm,
-    handleSearch,
-    isSearching,
-    handleExportSearch,
-    handleExportTable,
-    handleAddEmployee
-}) => (
+    }) => (
     <div className="search-bar">
         <div className="cont">
             <input
