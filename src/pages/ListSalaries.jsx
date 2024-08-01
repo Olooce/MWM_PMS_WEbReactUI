@@ -5,12 +5,13 @@ import LoadingAnimation from '../components/LoadingAnimation';
 import SalariesTable from '../components/tables/SalariesTable';
 import usePagination from '../hooks/usePagination';
 import Pagination from '../components/Pagination';
-import '../styles/listStyling.css'
-import '../styles/pageStyling.css'
+import '../styles/listStyling.css';
+import '../styles/pageStyling.css';
 
 const ListSalaries = () => {
   const pagination = usePagination();
   const [salaries, setSalaries] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchSalaries = useCallback(async () => {
     try {
@@ -31,6 +32,7 @@ const ListSalaries = () => {
 
   const renderContent = () => {
     if (pagination.loading) return <LoadingAnimation />;
+    if (error) return <p>{error}</p>;
     if (salaries.length === 0) return <p>No salaries found.</p>;
 
     return <SalariesTable salaries={salaries} page={pagination.page} size={pagination.size} />;
@@ -38,14 +40,18 @@ const ListSalaries = () => {
 
   return (
     <Dash>
-      <div className="salaries-list">
-        <div className='controls'>
-          <h2>Salaries</h2>
-        </div>
-        <div className='content-area'>
-          {renderContent()}
-          <div className='pagination'>
-            <Pagination pagination={pagination}/>
+      <div className="page-container">
+        <div className="content-wrapper">
+          <div className='controls'>
+            <h2>Salaries</h2>
+          </div>
+          <div className='inner-content'>
+            <div className='content-area'>
+              {renderContent()}
+              <div className='pagination'>
+                <Pagination pagination={pagination} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

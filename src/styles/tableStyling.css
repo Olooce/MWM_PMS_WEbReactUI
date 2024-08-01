@@ -3,6 +3,7 @@
   /* box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2); */
   overflow-y: auto;
   max-height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .fl-table {
