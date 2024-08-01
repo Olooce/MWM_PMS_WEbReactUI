@@ -12,7 +12,7 @@ const Table = ({ data = [], columns = [], onRowClick = null }) => {
     const headerHeight = 50; 
     const maxRows = data.length;
     const tableContentHeight = maxRows * rowHeight + headerHeight;
-    const viewportHeight = window.innerHeight - 140;
+    const viewportHeight = window.innerHeight - 200;
 
     setTableHeight(Math.min(tableContentHeight, viewportHeight));
   }, [data]);

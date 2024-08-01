@@ -39,20 +39,10 @@ const ListSalaries = () => {
 
   return (
     <Dash>
-      <div className="page-container">
-        <div className="content-wrapper">
-          <div className="controls">
-            <h2>Salaries</h2>
-          </div>
-          <div className="inner-content">
-            <div className="content-area">
-              {renderContent()}
-              <div className="pagination">
-                <Pagination pagination={pagination} />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="salary-list">
+        <h2>Salaries</h2>
+        {renderContent()}
+        <Pagination pagination={pagination} />
       </div>
     </Dash>
   );
