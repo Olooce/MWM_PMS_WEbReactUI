@@ -69,6 +69,7 @@ const ListEmployees = () => {
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
                         handleSearch={() => setIsSearching(true)}
+                        isSearching={isSearching}
                         handleExportSearch={handleExportSearch}
                         handleExportTable={handleExportTable}
                         handleAddEmployee={() => setSelectedEmployee(true)}
