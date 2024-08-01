@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/paginationStyling.css'
 
 function Pagination({ pagination }) {
     const { page, setPage, inputPage, setInputPage, inputSize, setInputSize, goToPage } = pagination;
