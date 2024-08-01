@@ -33,6 +33,7 @@ const ListEmployees = () => {
     } = useEmployees();
 
     const [showAllEmployees, setShowAllEmployees] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleShowAllEmployees = () => {
         setIsSearching(false);
