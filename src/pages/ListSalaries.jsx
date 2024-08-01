@@ -5,7 +5,6 @@ import LoadingAnimation from '../components/LoadingAnimation';
 import SalariesTable from '../components/tables/SalariesTable';
 import usePagination from '../hooks/usePagination';
 import Pagination from '../components/Pagination';
-import '../styles/listStyling.css';
 import '../styles/pageStyling.css';
 
 const ListSalaries = () => {
@@ -42,13 +41,13 @@ const ListSalaries = () => {
     <Dash>
       <div className="page-container">
         <div className="content-wrapper">
-          <div className='controls'>
+          <div className="controls">
             <h2>Salaries</h2>
           </div>
-          <div className='inner-content'>
-            <div className='content-area'>
+          <div className="inner-content">
+            <div className="content-area">
               {renderContent()}
-              <div className='pagination'>
+              <div className="pagination">
                 <Pagination pagination={pagination} />
               </div>
             </div>
