@@ -1,3 +1,4 @@
+/* Pagination Container */
 .pagination {
   display: flex;
   align-items: center;
@@ -7,21 +8,24 @@
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 100; 
+  position: relative; /* Keep it relative to place within the content-area */
+  z-index: 100; /* Ensure it's above other elements but below controls */
 }
 
+/* Page Info */
 .page-info {
   font-size: 16px;
   font-weight: bold;
 }
 
+/* Page Controls */
 .page-controls {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
+/* Input Styles */
 .page-input,
 .size-input {
   width: 80px;
@@ -37,6 +41,7 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
+/* Button Styles */
 .pagination-button,
 .go-button {
   padding: 6px 12px;
@@ -58,62 +63,3 @@
 .go-button:hover {
   background-color: #0056b3;
 }
-
-/* 
-.pagination {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    bottom: 2.5vh;
-  }
-  
-  .page-info {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .page-controls {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .page-input,
-  .size-input {
-    width: 80px;
-    padding: 5px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-  }
-  
-  .page-input:focus,
-  .size-input:focus {
-    outline: none;
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  }
-  
-  .go-button {
-    padding: 6px 5px;
-    border: none;
-    border-radius: 4px;
-  
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  
-  .go-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.5);
-  }
-   */
