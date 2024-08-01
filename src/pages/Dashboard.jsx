@@ -16,9 +16,9 @@ export function Dashboard() {
         const fetchData = async () => {
             try {
                 const [employeesResponse, salaryResponse, departmentsResponse] = await Promise.all([
-                    getAllEmployees(0, 1), // Fetching total count with minimal data
+                    getAllEmployees(1, 1), // Fetching total count with minimal data
                     getTotalSalary(),
-                    getAllDepartments(0, 1), // Fetching total count with minimal data
+                    getAllDepartments(1, 1), // Fetching total count with minimal data
                 ]);
 
                 console.log('Employees Response:', employeesResponse);
