@@ -79,7 +79,7 @@ const ListEmployees = () => {
                     </button>
                 </div>
 
-                <div className="content-area">
+                {/* <div className="content-area"> */}
                     {(isSearching || showAllEmployees) && (
                         renderContent()
                     )}
@@ -103,7 +103,7 @@ const ListEmployees = () => {
                         }
                     />
                 </div>
-            </div>
+            {/* </div> */}
         </Dash>
     );
 };
