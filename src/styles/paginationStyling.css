@@ -2,3 +2,126 @@
     align-self: baseline;
 }
   
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.pagination-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.pagination-button:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.page-info {
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+}
+
+.page-input,
+.size-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.go-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.go-button:hover {
+    background-color: #218838;
+}
+
+/* 
+.pagination {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    bottom: 2.5vh;
+  }
+  
+  .page-info {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .page-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .page-input,
+  .size-input {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  .page-input:focus,
+  .size-input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .go-button {
+    padding: 6px 5px;
+    border: none;
+    border-radius: 4px;
+  
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  
+  .go-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.5);
+  }
+   */

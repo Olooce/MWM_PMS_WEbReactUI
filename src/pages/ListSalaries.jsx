@@ -5,6 +5,7 @@ import LoadingAnimation from '../components/LoadingAnimation';
 import SalariesTable from '../components/tables/SalariesTable';
 import usePagination from '../hooks/usePagination';
 import Pagination from '../components/Pagination';
+import '../styles/listStyling.css'
 
 const ListSalaries = () => {
   const pagination = usePagination();
