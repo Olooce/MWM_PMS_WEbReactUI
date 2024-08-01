@@ -26,7 +26,6 @@ const ListEmployees = () => {
         setNewEmployee,
         fetchEmployees,
         handleAddEmployee,
-        handleShowEmployeeDetails,
         handleUpdateEmployee,
         handleDeleteEmployee,
         handleExportSearch,
@@ -42,6 +41,10 @@ const ListEmployees = () => {
         setSearchTerm('');
         pagination.setPage(1);
         fetchEmployees();
+    };
+    
+    const handleNewEmployeeChange = (e) => {
+        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value });
     };
 
     const renderContent = () => {
@@ -78,7 +81,7 @@ const ListEmployees = () => {
                     <button onClick={() => setIsSearching(true)}>Search</button>
                     {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
                     <button onClick={handleExportTable}>Export Table</button>
-                    <button onClick={handleAddEmployee}>Add Employee</button>
+                    <button onClick={setIsModalOpen(true)}>Add Employee</button>
                 </div>
 
                 {/* <div className="content-area"> */}

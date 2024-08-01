@@ -11,7 +11,7 @@ const useEmployees = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEmployeeDetailsModalOpen, setIsEmployeeDetailsModalOpen] = useState(false);
   const [newEmployee, setNewEmployee] = useState({
     name: '',
@@ -45,34 +45,19 @@ const useEmployees = () => {
     fetchEmployees();
   }, [fetchEmployees]);
 
-  // const handleAddEmployee = async () => {
-
-  //   setNewEmployee({
-  //     name: '',
-  //     departmentId: '',
-  //     employmentType: '',
-  //     dob: '',
-  //     gender: '',
-  //     status: '',
-  //     statusDescription: '',
-  //     employmentDate: '',
-  //     terminationDate: ''
-  //   });
-  //   setIsOpen(true);
-  //   <AddEmployeeModal
-  //     isOpen={isOpen}
-  //     onClose={() => setIsOpen(false)}
-  //     onSubmit={handlePostEmployee}
-  //     newEmployee={newEmployee}
-  //     handleNewEmployeeChange={(e) =>
-  //       setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
-  //     }
-  //   />
-  // }
-
-  const handleAddEmployee = () => {
-    setIsAddEmployeeModalOpen(true);
-  };
+  const handleAddEmployee = async () => {
+    try {
+        setLoading(true);
+        await addNewEmployee(newEmployee);
+        setNewEmployee({ name: '', departmentId: '', employmentType: '', dob: '', gender: '', status: '', statusDescription: '' });
+        fetchEmployees();
+    } catch (err) {
+        setError(err.message);
+    } finally {
+        setLoading(false);
+        setIsModalOpen(false);
+    }
+};
   
   const handlePostEmployee = async () => {
     setLoading(true);
