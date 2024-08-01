@@ -57,15 +57,13 @@ const useEmployees = () => {
       terminationDate: ''
     });
     setIsOpen(true);
-    AddEmployeeModal(isOpen, onclose, onSubmit, newEmployee, handleNewEmployeeChange)
+    AddEmployeeModal(isOpen, onclose, onSubmit= {() => {handlePostEmployee(newEmployee)}}, newEmployee, handleNewEmployeeChange)
   }
 
   const handlePostEmployee = async () => {
     setLoading(true);
     try {
       await addNewEmployee(newEmployee);
-
-      fetchEmployees();
     } catch (err) {
       setError(err.message);
     } finally {

@@ -1,4 +1,4 @@
-.container {
+.search-bar {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
@@ -7,14 +7,14 @@
 .search-bar .cont {
   width: 30.7rem;
   border-radius: 30px;
-  background-color: #ece1e1;
+  background-color: #f7f5f5;
   display: flex; /* Use Flexbox layout */
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   padding: 1rem; /* Optional: Add padding for spacing */
 }
 
-.cont :hover{
+.search-bar :hover{
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
