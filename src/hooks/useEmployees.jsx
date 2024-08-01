@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getAllEmployees, searchEmployees, addNewEmployee, updateEmployee, deleteEmployee, exportSearch, exportTable } from '../api';
 import usePagination from './usePagination'; // Import the usePagination hook
+import AddEmployeeModal from '../components/modals/AddEmployeeModal';
 
 const useEmployees = () => {
   const [employees, setEmployees] = useState([]);
@@ -9,6 +10,7 @@ const useEmployees = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [newEmployee, setNewEmployee] = useState({
     name: '',
     departmentId: '',
@@ -26,7 +28,7 @@ const useEmployees = () => {
   const fetchEmployees = useCallback(async () => {
     setLoading(true);
     try {
-      const response = isSearching 
+      const response = isSearching
         ? await searchEmployees(searchTerm, pagination.page, pagination.size)
         : await getAllEmployees(pagination.page, pagination.size);
       setEmployees(response.data || []);
@@ -36,30 +38,33 @@ const useEmployees = () => {
       setLoading(false);
     }
   }, [isSearching, searchTerm, pagination.page, pagination.size]);
- 
+
   useEffect(() => {
     fetchEmployees();
   }, [fetchEmployees]);
 
   const handleAddEmployee = async () => {
-    
+
+    setNewEmployee({
+      name: '',
+      departmentId: '',
+      employmentType: '',
+      dob: '',
+      gender: '',
+      status: '',
+      statusDescription: '',
+      employmentDate: '',
+      terminationDate: ''
+    });
+    setIsOpen(true);
+    AddEmployeeModal(isOpen, onclose, onSubmit, newEmployee, handleNewEmployeeChange)
   }
 
   const handlePostEmployee = async () => {
     setLoading(true);
     try {
       await addNewEmployee(newEmployee);
-      setNewEmployee({
-        name: '',
-        departmentId: '',
-        employmentType: '',
-        dob: '',
-        gender: '',
-        status: '',
-        statusDescription: '',
-        employmentDate: '',
-        terminationDate: ''
-      });
+
       fetchEmployees();
     } catch (err) {
       setError(err.message);
