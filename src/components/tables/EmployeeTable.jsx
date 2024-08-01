@@ -35,7 +35,11 @@
 import React from 'react';
 import Table from '../Table';
 
-const EmployeeTable = ({ employees, page, size, showEmployeeDetails }) => {
+const EmployeeTable = ({ employees, page, size, setSelectedEmployee }) => {
+    const showEmployeeDetails = (employee) => {
+        setSelectedEmployee(employee);
+    };
+
     const columns = [
         {
             key: 'index',

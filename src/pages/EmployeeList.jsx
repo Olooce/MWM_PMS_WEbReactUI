@@ -5,8 +5,8 @@ import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';
 import EmployeeTable from '../components/tables/EmployeeTable';
 import LoadingAnimation from '../components/LoadingAnimation';
-import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
 import AddEmployeeModal from '../components/modals/AddEmployeeModal';
+import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
 import '../styles/pageStyling.css';
 
 const ListEmployees = () => {
@@ -54,7 +54,7 @@ const ListEmployees = () => {
                     employees={employees}
                     page={pagination.page}
                     size={pagination.size}
-                    showEmployeeDetails={ () => handleShowEmployeeDetails(selectedEmployee)}
+                    setSelectedEmployee={setSelectedEmployee}
                 />
                 <Pagination pagination={pagination} />
             </>
@@ -72,7 +72,7 @@ const ListEmployees = () => {
                     <SearchBar
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
-                        handleSearch={() => setIsSearching(true)}                    
+                        handleSearch={() => setIsSearching(true)}
                     />
                     <button onClick={() => setIsSearching(true)}>Search</button>
                     {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
@@ -86,22 +86,30 @@ const ListEmployees = () => {
                 )}
 
                 {selectedEmployee && (
-                    <EmployeeDetailsModal
-                        employee={selectedEmployee}
-                        onClose={() => setSelectedEmployee(null)}
-                        onSave={handleUpdateEmployee}
-                        onDelete={handleDeleteEmployee}
-                    />
+                    <div className="employee-details-overlay">
+                        <AnimatePresence>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="employee-details-container"
+                            >
+                                <EmployeeDetails
+                                    employee={selectedEmployee}
+                                    onClose={closeEmployeeDetails}
+                                    onSave={handleUpdateEmployee}
+                                    onDelete={handleDeleteEmployee}
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 )}
-
-                <AddEmployeeModal
-                    isOpen={Boolean(selectedEmployee)}
-                    onClose={() => setSelectedEmployee(null)}
+                <AddEmployee
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
                     onSubmit={handleAddEmployee}
                     newEmployee={newEmployee}
-                    handleNewEmployeeChange={(e) =>
-                        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
-                    }
+                    handleNewEmployeeChange={handleNewEmployeeChange}
                 />
             </div>
             {/* </div> */}
