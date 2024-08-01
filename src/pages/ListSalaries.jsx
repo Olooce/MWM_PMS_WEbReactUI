@@ -40,14 +40,13 @@ const ListSalaries = () => {
     <Dash>
       <div className="salaries-list">
         <div className='controls'>
-        <h2>Salaries</h2>
+          <h2>Salaries</h2>
         </div>
         <div className='content-area'>
           {renderContent()}
           <div className='pagination'>
-          <Pagination pagination={pagination}
-           />
-           </div>
+            <Pagination pagination={pagination}/>
+          </div>
         </div>
       </div>
     </Dash>
