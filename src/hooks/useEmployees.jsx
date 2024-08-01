@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { getAllEmployees, searchEmployees, addNewEmployee, updateEmployee, deleteEmployee, exportSearch, exportTable } from '../api';
 import usePagination from './usePagination'; // Import the usePagination hook
 import AddEmployeeModal from '../components/modals/AddEmployeeModal';
+import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
 
 const useEmployees = () => {
   const [employees, setEmployees] = useState([]);
@@ -57,7 +58,15 @@ const useEmployees = () => {
       terminationDate: ''
     });
     setIsOpen(true);
-    AddEmployeeModal(isOpen, onclose, onSubmit= {() => {handlePostEmployee(newEmployee)}}, newEmployee, handleNewEmployeeChange)
+    <AddEmployeeModal
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      onSubmit={handlePostEmployee}
+      newEmployee={newEmployee}
+      handleNewEmployeeChange={(e) =>
+        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
+      }
+    />
   }
 
   const handlePostEmployee = async () => {
@@ -71,6 +80,9 @@ const useEmployees = () => {
     }
   };
 
+  const handleShowEmployeeDetails = async (employee) => {
+    <EmployeeDetailsModal />
+  }
   const handleUpdateEmployee = async (employeeId) => {
     setLoading(true);
     try {
