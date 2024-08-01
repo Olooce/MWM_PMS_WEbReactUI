@@ -1,4 +1,4 @@
-.search-bar {
+.container {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
@@ -14,7 +14,7 @@
   padding: 1rem; /* Optional: Add padding for spacing */
 }
 
-.search-bar :hover{
+.cont :hover{
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 

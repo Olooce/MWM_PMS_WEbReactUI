@@ -11,7 +11,7 @@ const SearchBar = ({
     handleAddEmployee
 }) => (
     <div className="search-bar">
-        <div className="cont">
+        <div className="container">
             <input
                 type="text"
                 value={searchTerm}
