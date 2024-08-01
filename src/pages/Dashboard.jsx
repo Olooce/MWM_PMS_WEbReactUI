@@ -3,12 +3,56 @@ import Dash from "../layout/Dash";
 import { motion } from 'framer-motion';
 import { FaUsers, FaMoneyBillWave, FaBuilding, FaChartLine } from 'react-icons/fa';
 import '../styles/dashboardStyling.css';
+import { getAllEmployees, getTotalSalary, getAllDepartments } from '../api'; // Adjust the import paths as needed
 
 export function Dashboard() {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [totalEmployees, setTotalEmployees] = useState(0);
+    const [totalSalary, setTotalSalary] = useState(0);
+    const [totalDepartments, setTotalDepartments] = useState(0);
+    const [growthPercentage, setGrowthPercentage] = useState(0); // Assuming you have an API for this
 
     useEffect(() => {
-        setIsLoaded(true);
+        const fetchData = async () => {
+            try {
+                const [employeesResponse, salaryResponse, departmentsResponse] = await Promise.all([
+                    getAllEmployees(0, 1), // Fetching total count with minimal data
+                    getTotalSalary(),
+                    getAllDepartments(0, 1), // Fetching total count with minimal data
+                ]);
+
+                console.log('Employees Response:', employeesResponse);
+                console.log('Salary Response:', salaryResponse);
+                console.log('Departments Response:', departmentsResponse);
+
+                if (employeesResponse.data && employeesResponse.data.totalElements !== undefined) {
+                    setTotalEmployees(employeesResponse.data.totalElements);
+                } else {
+                    console.error('Invalid employees response structure:', employeesResponse);
+                }
+
+                if (salaryResponse.data && salaryResponse.data.totalSalary !== undefined) {
+                    setTotalSalary(salaryResponse.data.totalSalary);
+                } else {
+                    console.error('Invalid salary response structure:', salaryResponse);
+                }
+
+                if (departmentsResponse.data && departmentsResponse.data.totalElements !== undefined) {
+                    setTotalDepartments(departmentsResponse.data.totalElements);
+                } else {
+                    console.error('Invalid departments response structure:', departmentsResponse);
+                }
+
+                // Example of calculating growth percentage (modify as per your logic)
+                // setGrowthPercentage(calculateGrowthPercentage());
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setIsLoaded(true);
+            }
+        };
+
+        fetchData();
     }, []);
 
     const cardVariants = {
@@ -17,10 +61,10 @@ export function Dashboard() {
     };
 
     const cards = [
-        { icon: <FaUsers />, title: "Employees", value: "1,234" },
-        { icon: <FaMoneyBillWave />, title: "Total Salary", value: "$5,678,900" },
-        { icon: <FaBuilding />, title: "Departments", value: "15" },
-        { icon: <FaChartLine />, title: "Growth", value: "12.5%" }
+        { icon: <FaUsers />, title: "Employees", value: totalEmployees.toLocaleString() },
+        { icon: <FaMoneyBillWave />, title: "Total Salary", value: `$${totalSalary.toLocaleString()}` },
+        { icon: <FaBuilding />, title: "Departments", value: totalDepartments },
+        { icon: <FaChartLine />, title: "Growth", value: `${growthPercentage}%` }
     ];
 
     return (
