@@ -11,7 +11,8 @@ const useEmployees = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
+  const [isEmployeeDetailsModalOpen, setIsEmployeeDetailsModalOpen] = useState(false);
   const [newEmployee, setNewEmployee] = useState({
     name: '',
     departmentId: '',
@@ -44,65 +45,40 @@ const useEmployees = () => {
     fetchEmployees();
   }, [fetchEmployees]);
 
-  const handleAddEmployee = async () => {
+  // const handleAddEmployee = async () => {
 
-    setNewEmployee({
-      name: '',
-      departmentId: '',
-      employmentType: '',
-      dob: '',
-      gender: '',
-      status: '',
-      statusDescription: '',
-      employmentDate: '',
-      terminationDate: ''
-    });
-    setIsOpen(true);
-    <AddEmployeeModal
-      isOpen={isOpen}
-      onClose={() => setIsOpen(false)}
-      onSubmit={handlePostEmployee}
-      newEmployee={newEmployee}
-      handleNewEmployeeChange={(e) =>
-        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
-      }
-    />
-  }
+  //   setNewEmployee({
+  //     name: '',
+  //     departmentId: '',
+  //     employmentType: '',
+  //     dob: '',
+  //     gender: '',
+  //     status: '',
+  //     statusDescription: '',
+  //     employmentDate: '',
+  //     terminationDate: ''
+  //   });
+  //   setIsOpen(true);
+  //   <AddEmployeeModal
+  //     isOpen={isOpen}
+  //     onClose={() => setIsOpen(false)}
+  //     onSubmit={handlePostEmployee}
+  //     newEmployee={newEmployee}
+  //     handleNewEmployeeChange={(e) =>
+  //       setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
+  //     }
+  //   />
+  // }
 
+  const handleAddEmployee = () => {
+    setIsAddEmployeeModalOpen(true);
+  };
+  
   const handlePostEmployee = async () => {
     setLoading(true);
     try {
       await addNewEmployee(newEmployee);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleShowEmployeeDetails = async (selectedEmployee) => {
-    <EmployeeDetailsModal 
-    employee = {selectedEmployee}
-    onClose={setSelectedEmployee(null)}
-    onDelete={handleDeleteEmployee}
-    onSave={handleUpdateEmployee}
-    />
-  }
-  const handleUpdateEmployee = async (employeeId) => {
-    setLoading(true);
-    try {
-      await updateEmployee(employeeId, selectedEmployee);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleDeleteEmployee = async (employeeId) => {
-    setLoading(true);
-    try {
-      await deleteEmployee(employeeId);
+      setIsAddEmployeeModalOpen(false);
       fetchEmployees();
     } catch (err) {
       setError(err.message);
@@ -110,7 +86,38 @@ const useEmployees = () => {
       setLoading(false);
     }
   };
-
+  
+  const handleShowEmployeeDetails = (employee) => {
+    setSelectedEmployee(employee);
+    setIsEmployeeDetailsModalOpen(true);
+  };
+  
+  const handleUpdateEmployee = async () => {
+    setLoading(true);
+    try {
+      await updateEmployee(selectedEmployee.employeeId, selectedEmployee);
+      setIsEmployeeDetailsModalOpen(false);
+      fetchEmployees();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  const handleDeleteEmployee = async () => {
+    setLoading(true);
+    try {
+      await deleteEmployee(selectedEmployee.employeeId);
+      setIsEmployeeDetailsModalOpen(false);
+      fetchEmployees();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   const handleExportSearch = useCallback(async () => {
     setLoading(true);
     try {
