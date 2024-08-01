@@ -13,14 +13,14 @@
     width: 80%;
     max-width: 1200px;
     height: 80%;
-    max-height: 800px; /* Adjust based on needs */
+    max-height: 800px; 
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    position: relative; /* Ensure positioning of children */
+    position: relative; 
 } */
 
 /* Controls */
@@ -28,6 +28,10 @@
     background-color: #fff;
     z-index: 90;
     padding: 1rem;
+    /* gap: 2rem; */
+    display: flex;
+    align-items: center;
+    align-content: space-evenly;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;

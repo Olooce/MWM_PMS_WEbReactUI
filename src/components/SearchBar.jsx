@@ -19,10 +19,6 @@ const SearchBar = ({
                 placeholder="Search employees..."
             />
         </div>
-        <button onClick={handleSearch}>Search</button>
-        {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
-        <button onClick={handleExportTable}>Export Table</button>
-        <button className="show-all-button" onClick={handleAddEmployee}>Add Employee</button>
     </div>
 );
 

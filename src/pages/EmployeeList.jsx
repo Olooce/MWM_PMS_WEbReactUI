@@ -62,7 +62,7 @@ const ListEmployees = () => {
     return (
         <Dash>
             <div className="employees-list">
-                    <h2>Employees</h2>
+                <h2>Employees</h2>
                 <div className="controls">
                     <button className="add-employee-button" onClick={handleShowAllEmployees}>
                         Show All
@@ -76,32 +76,36 @@ const ListEmployees = () => {
                         handleExportTable={handleExportTable}
                         handleAddEmployee={() => setSelectedEmployee(true)}
                     />
+                    <button onClick={() => setIsSearching(true)}>Search</button>
+                    {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
+                    <button onClick={handleExportTable}>Export Table</button>
+                    <button onClick={handleAddEmployee}>Add Employee</button>
                 </div>
 
                 {/* <div className="content-area"> */}
-                    {(isSearching || showAllEmployees) && (
-                        renderContent()
-                    )}
+                {(isSearching || showAllEmployees) && (
+                    renderContent()
+                )}
 
-                    {selectedEmployee && (
-                        <EmployeeDetailsModal
-                            employee={selectedEmployee}
-                            onClose={() => setSelectedEmployee(null)}
-                            onSave={handleUpdateEmployee}
-                            onDelete={handleDeleteEmployee}
-                        />
-                    )}
-
-                    <AddEmployeeModal
-                        isOpen={Boolean(selectedEmployee)}
+                {selectedEmployee && (
+                    <EmployeeDetailsModal
+                        employee={selectedEmployee}
                         onClose={() => setSelectedEmployee(null)}
-                        onSubmit={handleAddEmployee}
-                        newEmployee={newEmployee}
-                        handleNewEmployeeChange={(e) =>
-                            setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
-                        }
+                        onSave={handleUpdateEmployee}
+                        onDelete={handleDeleteEmployee}
                     />
-                </div>
+                )}
+
+                <AddEmployeeModal
+                    isOpen={Boolean(selectedEmployee)}
+                    onClose={() => setSelectedEmployee(null)}
+                    onSubmit={handleAddEmployee}
+                    newEmployee={newEmployee}
+                    handleNewEmployeeChange={(e) =>
+                        setNewEmployee({ ...newEmployee, [e.target.name]: e.target.value })
+                    }
+                />
+            </div>
             {/* </div> */}
         </Dash>
     );
