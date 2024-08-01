@@ -1,5 +1,5 @@
-  /* Page Container */
-  .page-container {
+/* Page Container */
+.page-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -37,4 +37,3 @@
     justify-content: center;
   }
   
-
