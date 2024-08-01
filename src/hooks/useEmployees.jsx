@@ -21,7 +21,6 @@ const useEmployees = () => {
     terminationDate: ''
   });
 
-  // Use the custom pagination hook
   const pagination = usePagination();
 
   const fetchEmployees = useCallback(async () => {
@@ -37,12 +36,16 @@ const useEmployees = () => {
       setLoading(false);
     }
   }, [isSearching, searchTerm, pagination.page, pagination.size]);
-
+ 
   useEffect(() => {
     fetchEmployees();
   }, [fetchEmployees]);
 
   const handleAddEmployee = async () => {
+    
+  }
+
+  const handlePostEmployee = async () => {
     setLoading(true);
     try {
       await addNewEmployee(newEmployee);

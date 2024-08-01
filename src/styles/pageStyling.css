@@ -28,7 +28,7 @@
     background-color: #fff;
     z-index: 90;
     padding: 1rem;
-    /* gap: 2rem; */
+    gap: 2rem;
     display: flex;
     align-items: center;
     align-content: space-evenly;

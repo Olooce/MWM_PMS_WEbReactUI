@@ -70,11 +70,7 @@ const ListEmployees = () => {
                     <SearchBar
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
-                        handleSearch={() => setIsSearching(true)}
-                        isSearching={isSearching}
-                        handleExportSearch={handleExportSearch}
-                        handleExportTable={handleExportTable}
-                        handleAddEmployee={() => setSelectedEmployee(true)}
+                        handleSearch={() => setIsSearching(true)}                    
                     />
                     <button onClick={() => setIsSearching(true)}>Search</button>
                     {isSearching && <button onClick={handleExportSearch}>Export Search Results</button>}
