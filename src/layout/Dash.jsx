@@ -83,7 +83,7 @@ const Dash = ({ children }) => {
                     </ul>
                 </nav>
 
-                <div className="content-area">
+                <div className="main-content-area">
                     {children}
                 </div>
 

@@ -2,7 +2,7 @@
   margin: 10px 70px 70px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
-  max-height: 400px; /* Adjust height as needed */
+  max-height: 100vh; /* Maximum height: viewport height */
 }
 
 .fl-table {
@@ -16,6 +16,7 @@
   white-space: nowrap;
   background-color: white;
 }
+
 
 .fl-table-header {
   position: sticky;

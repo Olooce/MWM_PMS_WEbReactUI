@@ -92,7 +92,6 @@
     display: flex;
     flex: 1;
     padding-top: 3.75rem;
-    /* Height of the navbar */
 }
 
 
@@ -171,11 +170,12 @@
 }
 
 /* Content area */
-.content-area {
+.main-content-area {
     flex: 1;
     padding: 1.25rem;
     background-color: #d7d4d4;
     box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+    overflow: hidden;
 }
 
 /* Popup */
@@ -189,6 +189,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }
 
 .popup-content {
