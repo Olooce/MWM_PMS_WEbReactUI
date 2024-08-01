@@ -3,7 +3,7 @@
 .dashboard-container {
   padding: 1.5rem;
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .dashboard-title {
