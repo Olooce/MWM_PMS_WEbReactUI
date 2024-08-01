@@ -7,12 +7,12 @@ const Table = ({ data = [], columns = [], onRowClick = null }) => {
   const tableWrapperRef = useRef(null);
 
   useEffect(() => {
-    // Calculate the height of the table dynamically
-    const rowHeight = 40; // approximate height of a row in px
-    const headerHeight = 50; // approximate height of the header in px
+   
+    const rowHeight = 40; 
+    const headerHeight = 50; 
     const maxRows = data.length;
     const tableContentHeight = maxRows * rowHeight + headerHeight;
-    const viewportHeight = window.innerHeight - 140; // Adjust based on layout needs
+    const viewportHeight = window.innerHeight - 140;
 
     setTableHeight(Math.min(tableContentHeight, viewportHeight));
   }, [data]);
