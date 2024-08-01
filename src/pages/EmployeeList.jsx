@@ -8,7 +8,6 @@ import LoadingAnimation from '../components/LoadingAnimation';
 import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
 import AddEmployeeModal from '../components/modals/AddEmployeeModal';
 import '../styles/pageStyling.css';
-import '../styles/listStyling.css';
 
 const ListEmployees = () => {
     const {
@@ -63,8 +62,11 @@ const ListEmployees = () => {
     return (
         <Dash>
             <div className="employees-list">
-                <div className="controls">
                     <h2>Employees</h2>
+                <div className="controls">
+                    <button className="add-employee-button" onClick={handleShowAllEmployees}>
+                        Show All
+                    </button>
                     <SearchBar
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
@@ -74,9 +76,6 @@ const ListEmployees = () => {
                         handleExportTable={handleExportTable}
                         handleAddEmployee={() => setSelectedEmployee(true)}
                     />
-                    <button className="add-employee-button" onClick={handleShowAllEmployees}>
-                        Show All
-                    </button>
                 </div>
 
                 {/* <div className="content-area"> */}
