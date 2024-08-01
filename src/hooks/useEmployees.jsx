@@ -80,7 +80,7 @@ const useEmployees = () => {
     }
   };
 
-  const handleShowEmployeeDetails = async (employee) => {
+  const handleShowEmployeeDetails = async (selectedEmployee) => {
     <EmployeeDetailsModal 
     employee = {selectedEmployee}
     onClose={setSelectedEmployee(null)}

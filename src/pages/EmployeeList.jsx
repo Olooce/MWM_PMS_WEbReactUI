@@ -53,7 +53,7 @@ const ListEmployees = () => {
                     employees={employees}
                     page={pagination.page}
                     size={pagination.size}
-                    showEmployeeDetails={handleShowEmployeeDetails}
+                    showEmployeeDetails={ () => handleShowEmployeeDetails(selectedEmployee)}
                 />
                 <Pagination pagination={pagination} />
             </>
