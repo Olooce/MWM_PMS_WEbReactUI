@@ -25,6 +25,7 @@ const ListEmployees = () => {
         setNewEmployee,
         fetchEmployees,
         handleAddEmployee,
+        handleShowEmployeeDetails,
         handleUpdateEmployee,
         handleDeleteEmployee,
         handleExportSearch,
@@ -52,7 +53,7 @@ const ListEmployees = () => {
                     employees={employees}
                     page={pagination.page}
                     size={pagination.size}
-                    showEmployeeDetails={setSelectedEmployee}
+                    showEmployeeDetails={handleShowEmployeeDetails}
                 />
                 <Pagination pagination={pagination} />
             </>

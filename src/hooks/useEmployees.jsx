@@ -81,13 +81,17 @@ const useEmployees = () => {
   };
 
   const handleShowEmployeeDetails = async (employee) => {
-    <EmployeeDetailsModal />
+    <EmployeeDetailsModal 
+    employee = {selectedEmployee}
+    onClose={setSelectedEmployee(null)}
+    onDelete={handleDeleteEmployee}
+    onSave={handleUpdateEmployee}
+    />
   }
   const handleUpdateEmployee = async (employeeId) => {
     setLoading(true);
     try {
       await updateEmployee(employeeId, selectedEmployee);
-      fetchEmployees();
     } catch (err) {
       setError(err.message);
     } finally {
@@ -133,7 +137,7 @@ const useEmployees = () => {
     employees,
     loading,
     error,
-    pagination, // Provide pagination object
+    pagination, 
     isSearching,
     searchTerm,
     selectedEmployee,
@@ -141,6 +145,8 @@ const useEmployees = () => {
     setIsSearching,
     setSearchTerm,
     setLoading,
+    handlePostEmployee,
+    handleShowEmployeeDetails,
     setSelectedEmployee,
     setNewEmployee,
     fetchEmployees,
