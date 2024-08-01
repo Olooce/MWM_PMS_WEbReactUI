@@ -175,6 +175,7 @@
     flex: 1;
     padding: 1.25rem;
     background-color: #d7d4d4;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 /* Popup */
