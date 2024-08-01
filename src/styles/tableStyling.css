@@ -15,14 +15,16 @@
   max-width: 100%;
   white-space: nowrap;
   background-color: white;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.5);
 }
 
 
 .fl-table-header {
   position: sticky;
   top: 0;
-  background: #4FC3A1; /* Header background color */
-  z-index: 1; /* Ensure the header stays on top */
+  background: #4FC3A1;
+  z-index: 1;
 }
 
 .fl-table td,

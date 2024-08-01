@@ -1,14 +1,14 @@
 .pagination {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center align pagination */
+  justify-content: center;
   gap: 10px;
   padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* Use relative positioning */
-  z-index: 100; /* Ensure it appears above other content if needed */
+  position: relative;
+  z-index: 100; 
 }
 
 .page-info {
