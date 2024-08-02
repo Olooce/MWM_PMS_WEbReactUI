@@ -77,10 +77,10 @@ const useEmployees = () => {
     setIsEmployeeDetailsModalOpen(true);
   };
   
-  const handleUpdateEmployee = async () => {
+  const handleUpdateEmployee = async (employeeId, updatedEmployee) => {
     setLoading(true);
     try {
-      await updateEmployee(selectedEmployee.employeeId, selectedEmployee);
+      await updateEmployee(employeeId, updatedEmployee);
       setIsEmployeeDetailsModalOpen(false);
       fetchEmployees();
     } catch (err) {
@@ -89,6 +89,7 @@ const useEmployees = () => {
       setLoading(false);
     }
   };
+  
   
   const handleDeleteEmployee = async () => {
     setLoading(true);
