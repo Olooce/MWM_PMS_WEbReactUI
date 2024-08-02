@@ -3,22 +3,22 @@ import Dash from "../layout/Dash";
 import { motion } from 'framer-motion';
 import { FaUsers, FaMoneyBillWave, FaBuilding, FaChartLine } from 'react-icons/fa';
 import '../styles/dashboardStyling.css';
-import { getAllEmployees, getTotalSalary, getAllDepartments } from '../api'; // Adjust the import paths as needed
+import { getAllEmployees, getTotalSalary, getAllDepartments } from '../api'; 
 
 export function Dashboard() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [totalEmployees, setTotalEmployees] = useState(0);
     const [totalSalary, setTotalSalary] = useState(0);
     const [totalDepartments, setTotalDepartments] = useState(0);
-    const [growthPercentage, setGrowthPercentage] = useState(0); // Assuming you have an API for this
+
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const [employeesResponse, salaryResponse, departmentsResponse] = await Promise.all([
-                    getAllEmployees(1, 1), // Fetching total count with minimal data
+                    getAllEmployees(1, 1), 
                     getTotalSalary(),
-                    getAllDepartments(1, 1), // Fetching total count with minimal data
+                    getAllDepartments(1, 1),
                 ]);
 
                 console.log('Employees Response:', employeesResponse);
@@ -43,8 +43,7 @@ export function Dashboard() {
                     console.error('Invalid departments response structure:', departmentsResponse);
                 }
 
-                // Example of calculating growth percentage (modify as per your logic)
-                // setGrowthPercentage(calculateGrowthPercentage());
+               
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {

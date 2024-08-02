@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getAllEmployees, searchEmployees, addNewEmployee, updateEmployee, deleteEmployee, exportSearch, exportTable } from '../api';
-import usePagination from './usePagination'; // Import the usePagination hook
-import AddEmployeeModal from '../components/modals/AddEmployeeModal';
-import EmployeeDetailsModal from '../components/modals/EmployeeDetailsModal';
+import usePagination from './usePagination'; 
 
 const useEmployees = () => {
   const [employees, setEmployees] = useState([]);
@@ -12,7 +10,6 @@ const useEmployees = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEmployeeDetailsModalOpen, setIsEmployeeDetailsModalOpen] = useState(false);
   const [newEmployee, setNewEmployee] = useState({
     name: '',
     departmentId: '',
@@ -95,7 +92,6 @@ const useEmployees = () => {
     setLoading(true);
     try {
       await deleteEmployee(selectedEmployee.employeeId);
-      setIsEmployeeDetailsModalOpen(false);
       fetchEmployees();
     } catch (err) {
       setError(err.message);
