@@ -10,15 +10,15 @@ const NotificationDrawer = ({ clientId, isOpen, onClose }) => {
         setNotifications(prev => [...prev, newNotification]);
     }, 300);
 
-    useEffect(() => {
-        const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
-        eventSource.onmessage = (event) => {
-            debouncedSetNotifications(event.data);
-            console.log(event);
-        };
+    // // useEffect(() => {
+    // //     const eventSource = new EventSource(`http://localhost:8080/api/notifications?clientId=${clientId}`);
+    // //     eventSource.onmessage = (event) => {
+    // //         debouncedSetNotifications(event.data);
+    // //         console.log(event);
+    // //     };
 
-        return () => eventSource.close();
-    }, [clientId]);
+    //     return () => eventSource.close();
+    // // }, [clientId]);
 
     return (
         <AnimatePresence>

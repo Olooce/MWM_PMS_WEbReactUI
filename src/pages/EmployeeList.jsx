@@ -102,7 +102,7 @@ const ListEmployees = () => {
                                 <EmployeeDetailsModal
                                     employee={selectedEmployee}
                                     onClose={() => setSelectedEmployee(null)}
-                                    onSave={handleUpdateEmployee}
+                                    onSave={() => handleUpdateEmployee()}
                                     onDelete={handleDeleteEmployee}
                                 />
                             </motion.div>
