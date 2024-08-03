@@ -12,13 +12,38 @@ const api = axios.create({
 
 export default api;
 
+// Add a request interceptor to include a JWT token in the headers
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('jwt');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
+}, error => {
+  return Promise.reject(error);
+});
+
+
 // Authentication
-export const validateCredentials = (username, password) => {
-  return api.post('/systemusers/auth', {
-    username: username,
-    password: password
+export const validateCredentials = async (username, password) => {
+  const response = await fetch('http://localhost:8080/systemusers/auth', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, password }),
   });
+
+  if (response.status === 200) {
+    const token = await response.text();
+    localStorage.setItem('jwt', token);
+    return response;
+  } else {
+    throw new Error('Invalid credentials');
+  }
 };
+
+
 
 // Employee Management
 export const getAllEmployees = (page = 0, size = 10) =>
