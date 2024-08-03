@@ -63,7 +63,7 @@ export function Dashboard() {
         { icon: <FaUsers />, title: "Employees", value: totalEmployees.toLocaleString() },
         { icon: <FaMoneyBillWave />, title: "Total Salary", value: `$${totalSalary.toLocaleString()}` },
         { icon: <FaBuilding />, title: "Departments", value: totalDepartments },
-        { icon: <FaChartLine />, title: "Growth", value: `${growthPercentage}%` }
+       
     ];
 
     return (
