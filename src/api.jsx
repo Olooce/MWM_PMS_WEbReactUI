@@ -59,7 +59,7 @@ export const validateCredentials = async (username, password) => {
 
 // Employee Management
 export const getAllEmployees = (page = 0, size = 10) =>
-  api.get(`/employees?page=${page}&size=${size}`,{config});
+  api.get(`/employees?page=${page}&size=${size}`);
 
 export const getAllNewEmployees = (page = 0, size = 10, startDate, endDate) => {
   let url = `/employees/new-by-department?page=${page}&size=${size}`;
