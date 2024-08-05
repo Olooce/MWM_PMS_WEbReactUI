@@ -15,6 +15,7 @@ export default api;
 // Add a request interceptor to include a JWT token in the headers
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('jwt');
+  console.log(token);
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;
   }
@@ -23,15 +24,15 @@ api.interceptors.request.use(config => {
   return Promise.reject(error);
 });
 
-api.interceptors.response.use(
-  response => response,
-  error => {
-    if (error.response && error.response.status === 403) {
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  }
-);
+// api.interceptors.response.use(
+//   response => response,
+//   error => {
+//     if (error.response && error.response.status === 403) {
+//       window.location.href = '/login';
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 
 
@@ -58,7 +59,7 @@ export const validateCredentials = async (username, password) => {
 
 // Employee Management
 export const getAllEmployees = (page = 0, size = 10) =>
-  api.get(`/employees?page=${page}&size=${size}`);
+  api.get(`/employees?page=${page}&size=${size}`,{config});
 
 export const getAllNewEmployees = (page = 0, size = 10, startDate, endDate) => {
   let url = `/employees/new-by-department?page=${page}&size=${size}`;
