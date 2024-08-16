@@ -38,7 +38,7 @@ api.interceptors.response.use(
 
 // Authentication
 export const validateCredentials = async (username, password) => {
-  const response = await fetch('http://localhost:8080/systemusers/auth', {
+  const response = await api.fetch('/systemusers/auth', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
