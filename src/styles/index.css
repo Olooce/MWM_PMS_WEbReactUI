@@ -22,7 +22,7 @@
 body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
-  background: rgba(71, 147, 227, 1);
+  background: rgb(76, 227, 71);
   margin: 0;
   /* display: flex; */
   place-items: center;
