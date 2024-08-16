@@ -4,6 +4,7 @@
 
 ## Live Demo
 
-![Live Demo](https://example.com/path-to-your-image.png)
+![Live Demo](![image](https://github.com/user-attachments/assets/19f476c9-ef04-467e-a510-5b55c76a75b5)
+)
 
 View live demo at [MWM-PMS LIVE DEMO](https://mwm-pms-live-demo.vercel.app/).
