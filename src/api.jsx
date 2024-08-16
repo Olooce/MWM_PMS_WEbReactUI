@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://delicate-clearly-roughy.ngrok-free.app',
+  baseURL: import.meta.env.BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
