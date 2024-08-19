@@ -1,9 +1,7 @@
-name: Node.js Continuous Integration
+name: Continuous Integration
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
 
 jobs:
