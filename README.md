@@ -1,7 +1,7 @@
 # MWM_PMS REACT CLIENT
 ---
 
-[![Continuous Integration](https://github.com/Olooce/MWM_PMS_WEbReactUI/actions/workflows/deploy-prod.yml/badge.svg)](https://github.com/Olooce/MWM_PMS_WEbReactUI/actions/workflows/node.js.yml)
+[![Continuous Integration](https://github.com/Olooce/MWM_PMS_WEbReactUI/actions/workflows/prod-deploy.yml/badge.svg)](https://github.com/Olooce/MWM_PMS_WEbReactUI/actions/workflows/prod-deploy.yml)
 
 ## Live Demo
 Click here to see the live demo.
