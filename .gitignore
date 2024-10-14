@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.idea/
+node_modules/
+target/
+build/
+dist/
+coverage/
+.env
+Thumbs.db
