@@ -30,3 +30,4 @@ dist/
 coverage/
 .env
 Thumbs.db
+cmake-build-debug
