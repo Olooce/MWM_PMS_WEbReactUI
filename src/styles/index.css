@@ -9,7 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 /* Hide scrollbar for WebKit browsers */
-*:-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
