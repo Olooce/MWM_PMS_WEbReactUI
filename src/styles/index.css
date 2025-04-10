@@ -20,13 +20,14 @@
 }
 
 body {
-  font-family: Helvetica;
+  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #0ec2b3;;
+  background: #0ec2b3;
   margin: 0;
   /* display: flex; */
   place-items: center;
 }
+
 
 h1 {
   text-align: center;
