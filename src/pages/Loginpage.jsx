@@ -86,7 +86,20 @@ export default function LoginPage() {
               className="form-control"
             />
             <img src={`https://dummyimage.com/100x40/000/fff&text=${captcha}`} alt="captcha" />
-            <span className="captcha-refresh" onClick={generateCaptcha}>↻</span>
+            <span
+                className="captcha-refresh"
+                role="button"
+                tabIndex="0"
+                onClick={generateCaptcha}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    generateCaptcha();
+                  }
+                }}
+              >
+              ↻
+            </span>
+
           </div>
           <button onClick={handleLogin} className="btn btn-primary">Log In</button>
         </div>
